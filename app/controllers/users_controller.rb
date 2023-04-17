@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :find_user
+    before_action :find_user, only: [:show]
 
     def index 
         users = User.all
@@ -11,14 +11,14 @@ class UsersController < ApplicationController
     end
 
     def create 
-        user = User.create(user_params)
+        user = User.create!(user_params)
         render json: user, status: :created
     end
 
     private 
     
     def find_user 
-        @user = User.find_by(id: params[:id])
+        @user = User.find(params[:id])
     end
 
     def user_params

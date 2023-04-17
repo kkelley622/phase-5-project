@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-    before_action :find_appointment
+    before_action :find_appointment, only: [:show]
 
     def index 
         appointments = Appointment.all 
@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create 
-        appointment = Appointment.create(apppointment_params)
+        appointment = Appointment.create!(apppointment_params)
         render json: appointment, status: :created 
     end
 
@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
     private 
     
     def find_appointment 
-        @appointment = Appointment.find_by(id: params[:id])
+        @appointment = Appointment.find(params[:id])
     end
 
     def apppointment_params 
