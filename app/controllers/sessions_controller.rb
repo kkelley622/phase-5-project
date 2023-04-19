@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+
+    skip_before_action :authorize, only: [:create]
     
     def create 
         user = User.find_by_user_name(params[:user_name])
@@ -13,5 +15,5 @@ class SessionsController < ApplicationController
     def destroy
         session.delete :user_id
     end
-    
+
 end
