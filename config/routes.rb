@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :prescriptions
+  resources :prescriptions, only: [:index, :create, :show, :destroy]
   resources :users, only: [:index, :create, :show]
   resources :procedures
   resources :appointments
