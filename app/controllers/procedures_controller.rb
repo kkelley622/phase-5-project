@@ -1,6 +1,6 @@
 class ProceduresController < ApplicationController
 
-    before_action :find_procedure, only: [:show]
+    before_action :find_procedure, only: [:show, :destroy]
 
     def index 
         procedures = Procedure.all 
@@ -14,6 +14,11 @@ class ProceduresController < ApplicationController
     def create 
         procedure = Procedure.create!(procedure_params)
         render json: procedure, status: :created 
+    end
+
+    def destroy
+        @procedure.destroy 
+        render json: @procedure
     end
 
     private
