@@ -9,6 +9,10 @@ class UsersController < ApplicationController
         render json: users, status: :ok 
     end
 
+    def me 
+        render json: current_user, status: :ok 
+    end
+
     def show
         render json: @user, status: :ok
     end
