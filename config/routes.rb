@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :prescriptions, only: [:index, :create, :show, :destroy]
+  resources :prescriptions, only: [:index, :show, :create, :destroy]
   resources :users, only: [:index, :create, :show]
-  resources :procedures
+  resources :procedures, only: [:index, :show, :create, :destroy]
   resources :appointments
   resources :medications, only: [:index, :show, :create]
   # Routing logic: fallback requests for React Router.
