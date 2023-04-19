@@ -2,9 +2,14 @@ class ProceduresController < ApplicationController
 
     before_action :find_procedure, only: [:show, :destroy]
 
-    def index 
-        procedures = Procedure.all 
-        render json: procedures, status: :ok
+    def index
+        if params[:user_id]
+            user = User.find_by_id(params[:user_id])
+            @procedures = user.procedures
+        else
+            @procedures = Procedure.all
+        end 
+        render json: @procedures, status: :ok
     end
 
     def show 

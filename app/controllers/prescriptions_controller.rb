@@ -2,9 +2,14 @@ class PrescriptionsController < ApplicationController
     
     before_action :find_prescription, only: [:show, :destroy]
     
-    def index 
-        prescriptions = Prescription.all 
-        render json: prescriptions, status: :ok
+    def index
+        if params[:user_id] 
+            user = User.find_by_id(params[:user_id])
+            @prescriptions = user.prescriptions 
+        else
+            @prescriptions = Prescription.all
+        end 
+        render json: @prescriptions, status: :ok
     end
 
     def show 
