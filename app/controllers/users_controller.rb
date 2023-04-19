@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    
+
     before_action :find_user, only: [:show]
 
     def index 
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     def create 
         user = User.create!(user_params)
+        session[:user_id] = user.id
         render json: user, status: :created
     end
 
