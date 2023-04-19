@@ -13,7 +13,11 @@ class ApplicationController < ActionController::API
   def authorize 
     render json: { errors: ["You must be logged in"]}, status: :unauthorized unless session.include? :user_id
   end
-  
+
+  def logged_in
+    render json: { errors: ["You are already logged in"]}, status: :unauthorized if session.include? :user_id 
+  end
+
   private
 
   def render_not_found_response(exception)
