@@ -1,10 +1,18 @@
 class AppointmentsController < ApplicationController
 
     before_action :find_appointment, only: [:show, :update, :destroy]
+    before_action only: [:update, :destroy] do 
+        authorize_user_resource(@appointment.user_id)
+    end
 
-    def index 
-        appointments = Appointment.all 
-        render json: appointments, status: :ok 
+    def index
+        if params[:user_id]
+            user = User.find_by_id(params[:user_id])
+            @appointments = user.appointments
+        else
+            @appointments = Appointment.all
+        end 
+        render json: @appointments, status: :ok 
     end
 
     def show
