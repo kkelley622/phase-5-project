@@ -1,5 +1,7 @@
 class MedicationsController < ApplicationController
+
     before_action :find_medication, only: [:show]
+    
     def index 
         medications = Medication.all 
         render json: medications, status: :ok 
