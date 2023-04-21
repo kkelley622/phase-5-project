@@ -8,7 +8,7 @@ const Navbar = () => {
     const handleClick = () => {
         fetch("/logout", {method: 'DELETE'})
         navigate("/")
-    }
+    };
 
   return (
     <div>

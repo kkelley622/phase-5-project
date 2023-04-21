@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useSelector } from 'react-redux'
 import Navbar from './navigation/Navbar';
 import Login from './auth/Login';
 import Landing from './user/Landing';
@@ -11,6 +12,10 @@ import ProceduresList from './procedures/ProceduresList';
 import ProvidersList from './providers/ProvidersList';
 
 function App() {
+
+  const reduxState = useSelector((store) => store);
+  console.log(reduxState)
+
   return (
     <BrowserRouter>
       <Navbar />
