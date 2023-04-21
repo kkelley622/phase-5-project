@@ -7,6 +7,8 @@ import MedList from './meds/MedList';
 import Signup from './auth/Signup';
 import AppointmentsList from './appointments/AppointmentsList';
 import ProblemsList from './problems/ProblemsList';
+import ProceduresList from './procedures/ProceduresList';
+import ProvidersList from './providers/ProvidersList';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/:user_name/meds" element={<MedList />} />
         <Route path="/:user_name/appointments" element={<AppointmentsList />} />
         <Route path="/:user_name/problems" element={<ProblemsList /> } />
+        <Route path="/:user_name/procedures" element={<ProceduresList />} />
+        <Route path="/:user_name/providers" element={<ProvidersList />} />
       </Routes>
     </BrowserRouter>
   );
