@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Navbar from './components/navigation/Navbar';
 import Login from './components/auth/Login';
 import Landing from './components/user/Landing';
@@ -10,11 +10,19 @@ import AppointmentsList from './components/appointments/AppointmentsList';
 import ProblemsList from './components/problems/ProblemsList';
 import ProceduresList from './components/procedures/ProceduresList';
 import ProvidersList from './components/providers/ProvidersList';
+import { useEffect } from 'react';
+import { loadMeds } from './actions/meds';
 
 function App() {
 
   const reduxState = useSelector((store) => store.medsReducer);
   console.log(reduxState)
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadMeds())
+  }, [dispatch])
 
   return (
     <BrowserRouter>

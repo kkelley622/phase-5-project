@@ -1,22 +1,14 @@
-const initialState = [
-    {
-        id: 1,
-        title: "How to train your llama"
-    },
-    {
-        id: 2,
-        title: "How to quickly eat a chocolate chip cookie"
-    },
-    {
-        id: 3,
-        title: "There is someone who likes "
-    }
-]
+const initialState = [];
 
 
 
 const medsReducer = (state=initialState, action) => {
-    return state
+    switch(action.type) {
+        case "LOAD_MEDS":
+            return action.payload
+        default:
+            return state
+    }
 };
 
 export default medsReducer; 
