@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const navigate = useNavigate();
+    const user = useSelector(store => store.usersReducer.currentUser);
+    console.log("Login users", user)
 
     const [formData, setFormData] = useState({
         user_name: "",

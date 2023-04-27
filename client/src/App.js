@@ -1,19 +1,19 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from 'react-redux'
-import Navbar from './navigation/Navbar';
-import Login from './auth/Login';
-import Landing from './user/Landing';
-import MedList from './meds/MedList';
-import Signup from './auth/Signup';
-import AppointmentsList from './appointments/AppointmentsList';
-import ProblemsList from './problems/ProblemsList';
-import ProceduresList from './procedures/ProceduresList';
-import ProvidersList from './providers/ProvidersList';
+import Navbar from './components/navigation/Navbar';
+import Login from './components/auth/Login';
+import Landing from './components/user/Landing';
+import MedList from './components/meds/MedList';
+import Signup from './components/auth/Signup';
+import AppointmentsList from './components/appointments/AppointmentsList';
+import ProblemsList from './components/problems/ProblemsList';
+import ProceduresList from './components/procedures/ProceduresList';
+import ProvidersList from './components/providers/ProvidersList';
 
 function App() {
 
-  const reduxState = useSelector((store) => store);
+  const reduxState = useSelector((store) => store.medsReducer);
   console.log(reduxState)
 
   return (
