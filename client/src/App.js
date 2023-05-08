@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Navbar from './components/navigation/Navbar';
 import Login from './components/auth/Login';
 import Landing from './components/user/Landing';
@@ -12,16 +12,16 @@ import ProceduresList from './components/procedures/ProceduresList';
 import ProvidersList from './components/providers/ProvidersList';
 import { useEffect } from 'react';
 import { loadMeds } from './actions/meds';
+import PrescriptionsList from './components/prescriptions/PrescriptionsList';
+import { loadPrescriptions } from './actions/prescriptions';
 
 function App() {
-
-  const reduxState = useSelector((store) => store.medsReducer);
-  console.log(reduxState)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadMeds())
+    dispatch(loadMeds());
+    dispatch(loadPrescriptions());
   }, [dispatch])
 
   return (
@@ -33,6 +33,7 @@ function App() {
         <Route path="/:user_name" element={<Landing />} />
         <Route path="/:user_name/meds" element={<MedList />} />
         <Route path="/:user_name/appointments" element={<AppointmentsList />} />
+        <Route path="/:user_name/prescriptions" element={<PrescriptionsList />} />
         <Route path="/:user_name/problems" element={<ProblemsList /> } />
         <Route path="/:user_name/procedures" element={<ProceduresList />} />
         <Route path="/:user_name/providers" element={<ProvidersList />} />
