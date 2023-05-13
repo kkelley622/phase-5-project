@@ -14,12 +14,14 @@ import { useEffect } from 'react';
 import { loadMeds } from './actions/meds';
 import PrescriptionsList from './components/prescriptions/PrescriptionsList';
 import { loadPrescriptions } from './actions/prescriptions';
+import { loadAppointments } from './actions/appointments';
 
 function App() {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(loadAppointments());
     dispatch(loadMeds());
     dispatch(loadPrescriptions());
   }, [dispatch])

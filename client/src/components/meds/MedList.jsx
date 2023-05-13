@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const MedList = () => {
+  
   const meds = useSelector(store => store.medsReducer)
   console.log("meds list", meds)
 

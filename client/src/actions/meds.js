@@ -7,4 +7,4 @@ export const loadMeds = () => {
             dispatch(action)
         })
     }
-}
+};

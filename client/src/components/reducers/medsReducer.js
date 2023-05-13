@@ -1,7 +1,5 @@
 const initialState = [];
 
-
-
 const medsReducer = (state=initialState, action) => {
     switch(action.type) {
         case "LOAD_MEDS":
