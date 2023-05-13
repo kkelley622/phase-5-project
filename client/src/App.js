@@ -15,6 +15,7 @@ import { loadMeds } from './actions/meds';
 import PrescriptionsList from './components/prescriptions/PrescriptionsList';
 import { loadPrescriptions } from './actions/prescriptions';
 import { loadAppointments } from './actions/appointments';
+import { loadProblems } from './actions/problems';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     dispatch(loadAppointments());
     dispatch(loadMeds());
     dispatch(loadPrescriptions());
+    dispatch(loadProblems());
   }, [dispatch])
 
   return (
