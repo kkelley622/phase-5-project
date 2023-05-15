@@ -1,20 +1,42 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
 
-    const navigate = useNavigate();
+  const { loggedIn } = useSelector(store => store.usersReducer);
 
-    const handleClick = () => {
-        fetch("/logout", {method: 'DELETE'})
-        navigate("/")
-    };
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    fetch("/logout", {method: 'DELETE'})
+    navigate("/")
+  };
+
+  const loggedInLinks = () => {
+    return (
+      <>
+        <li><Link to="/:username">Home</Link></li>
+        <li><Link to="/:user_name/appointments">Appointments</Link></li>
+        <li><Link to="/:user_name/prescriptions">Prescriptions</Link></li>
+        <li><Link to="/:user_name/problems">Problems</Link></li>
+        <li><Link to="/:user_name/procedures">Procedures</Link></li>
+        <li><Link to="#" onClick={handleClick}>Logout</Link></li>
+      </>
+    )
+  };
+
+  const loggedOutLinks = () => {
+    return (
+      <>
+        <li><Link to="/signup">Signup</Link></li>
+        <li><Link to="/login">Login</Link></li>
+      </>
+    )
+  };
 
   return (
-    <div>
-        <li><Link to="/:username">Home</Link></li>
-        <li><Link to="#" onClick={handleClick}>Logout</Link></li>
-    </div>
+    <ul>{ loggedIn ? loggedInLinks() : loggedOutLinks() }</ul>
   )
 }
 

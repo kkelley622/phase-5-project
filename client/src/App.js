@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from 'react-redux'
+import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar';
 import Login from './components/auth/Login';
 import Landing from './components/user/Landing';
@@ -31,8 +32,9 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <Errors />
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/:user_name" element={<Landing />} />
         <Route path="/:user_name/meds" element={<MedList />} />
