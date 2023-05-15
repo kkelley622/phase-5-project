@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../actions/users';
 
 const Login = () => {
-
+    const { loggedIn } = useSelector(store => store.usersReducer);
+    
     const navigate = useNavigate();
-    const user = useSelector(store => store.usersReducer.currentUser);
-    console.log("Login users", user)
+    const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
         user_name: "",
@@ -19,16 +20,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch("/login", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(res => res.json())
-        .then(data => console.log(data))
-        navigate("/:username")
+        dispatch(loginUser(formData, navigate))
     };
 
   return (

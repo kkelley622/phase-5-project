@@ -11,19 +11,22 @@ import AppointmentsList from './components/appointments/AppointmentsList';
 import ProblemsList from './components/problems/ProblemsList';
 import ProceduresList from './components/procedures/ProceduresList';
 import ProvidersList from './components/providers/ProvidersList';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { loadMeds } from './actions/meds';
 import PrescriptionsList from './components/prescriptions/PrescriptionsList';
 import { loadPrescriptions } from './actions/prescriptions';
 import { loadAppointments } from './actions/appointments';
 import { loadProblems } from './actions/problems';
+import { loadCurrentUser } from './actions/users';
 
 function App() {
+  const [loading, setLoading] = useState(true)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadAppointments());
+    dispatch(loadCurrentUser());
     dispatch(loadMeds());
     dispatch(loadPrescriptions());
     dispatch(loadProblems());

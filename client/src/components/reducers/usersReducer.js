@@ -5,7 +5,16 @@ const initialState = {
 };
 
 const usersReducer = (state=initialState, action) => {
-    return state 
+    switch(action.type) {
+        case "LOGIN_USER":
+            return {
+                ...state,
+                currentUser: action.payload,
+                loggedIn: true
+            }
+        default:
+            return state; 
+    }
 };
 
 export default usersReducer;
