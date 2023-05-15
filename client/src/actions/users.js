@@ -26,4 +26,8 @@ export const loginUser = (user, navigate) => {
         })
 
     }
-}
+};
+
+export const logoutUser = () => {
+    return { type: "LOGOUT_USER"}
+};
