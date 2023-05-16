@@ -1,12 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import AppointmentCard from './AppointmentCard';
 
 const AppointmentsList = () => {
-
   const appointments = useSelector(store => store.appointmentsReducer);
-  console.log("apppointments", appointments)
 
-  const appointmentsList = appointments.map(app => <li key={app.id}>{app.user.first_name} {app.location}</li>)
+  const appointmentsList = appointments.map(app => <AppointmentCard key={app.id} app={app}/>)
 
   return (
     <div>{appointmentsList}</div>
