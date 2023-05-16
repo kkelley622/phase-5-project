@@ -1,3 +1,5 @@
+import { setErrors } from "./errors";
+
 export const loadCurrentUser = () => {
     return dispatch => {
         fetch('/me')
@@ -20,9 +22,13 @@ export const loginUser = (user, navigate) => {
         })
         .then(res => res.json())
         .then(data => {
-            const action = { type: "LOGIN_USER", payload: data }
-            dispatch(action)
-            navigate('/')
+            if(data.errors) {
+                dispatch(setErrors(data.errors))
+            } else {
+                const action = { type: "LOGIN_USER", payload: data }
+                dispatch(action)
+                navigate('/')
+            }
         })
 
     }

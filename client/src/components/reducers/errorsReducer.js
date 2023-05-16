@@ -1,7 +1,12 @@
 const initialState = [];
 
 const errorsReducer = (state=initialState, action) => {
-    return state;
+    switch(action.type) {
+        case "SET_ERRORS":
+            return action.payload;
+        default:
+            return state
+    }
 };
 
 export default errorsReducer;
