@@ -18,6 +18,7 @@ import { loadPrescriptions } from './actions/prescriptions';
 import { loadAppointments } from './actions/appointments';
 import { loadProblems } from './actions/problems';
 import { loadCurrentUser } from './actions/users';
+import { loadProcedures } from './actions/procedures';
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -30,6 +31,7 @@ function App() {
     dispatch(loadMeds());
     dispatch(loadPrescriptions());
     dispatch(loadProblems());
+    dispatch(loadProcedures());
   }, [dispatch])
 
   return (

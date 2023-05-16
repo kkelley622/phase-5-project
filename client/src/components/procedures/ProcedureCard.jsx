@@ -1,8 +1,10 @@
 import React from 'react'
 
-const ProcedureCard = () => {
+const ProcedureCard = ({ procedure }) => {
   return (
-    <div>ProcedureCard</div>
+    <>
+      <h1>{procedure.description}</h1>
+    </>
   )
 }
 
