@@ -1,4 +1,4 @@
-import { setErrors } from "./errors";
+import { clearErrors, setErrors } from "./errors";
 
 export const loadCurrentUser = () => {
     return dispatch => {
@@ -27,7 +27,8 @@ export const loginUser = (user, navigate) => {
             } else {
                 const action = { type: "LOGIN_USER", payload: data }
                 dispatch(action)
-                navigate('/')
+                dispatch(clearErrors())
+                navigate('/:user_name')
             }
         })
 
