@@ -11,6 +11,30 @@ export const loadCurrentUser = () => {
     }
 };
 
+export const signupUser = (user, navigate) => {
+    return dispatch => {
+        fetch('/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.errors) {
+                dispatch(setErrors(data.errors))    
+            } else {
+                const action = { type: "SIGNUP_USER", payload: data }
+                dispatch(action)
+                dispatch({ type: "LOGIN_USER", payload: data })
+                dispatch(clearErrors())
+                navigate('/:user_name')
+            }
+        })
+    }
+}
+
 export const loginUser = (user, navigate) => {
     return dispatch => {
         fetch('/login', {

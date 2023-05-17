@@ -12,6 +12,11 @@ const usersReducer = (state=initialState, action) => {
                 currentUser: action.payload,
                 loggedIn: true
             }
+        case "SIGNUP_USER":
+            return {
+                ...state,
+                users: [...state.users, action.payload]
+            }
         case "LOGOUT_USER":
             return {
                 ...state,
