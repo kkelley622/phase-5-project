@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
+import { signupUser } from '../../actions/users';
 
 const Signup = () => {
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
+        dob: "",
         user_name: "",
         password: "",
         password_confirmation: "",
@@ -19,16 +22,7 @@ const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefeault()
-        fetch("/signup", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(res => res.json())
-        .then(data => console.log(data))
-        navigate("/:username")
+        dispatch(signupUser(formData, navigate))
     }
 
   return (
@@ -47,6 +41,13 @@ const Signup = () => {
             value={formData.last_name}
             onChange={handleChange}
         />
+        <label>Date of Birth</label>
+        <input
+            type="text"
+            name="dob"
+            value={formData.dob}
+            onChange={handleChange}
+        />
         <label>Username</label>
         <input
             type="text"
@@ -56,14 +57,14 @@ const Signup = () => {
         />
         <label>Password</label>
         <input
-            type="text"
+            type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
         />
         <label>Password Confirmation</label>
         <input
-            type="text"
+            type="password"
             name="password_confirmation"
             value={formData.password_confirmation}
             onChange={handleChange}

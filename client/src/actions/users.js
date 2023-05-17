@@ -1,12 +1,16 @@
 import { clearErrors, setErrors } from "./errors";
 
-export const loadCurrentUser = () => {
+export const loadCurrentUser = (setLoading) => {
     return dispatch => {
         fetch('/me')
         .then(res => res.json())
         .then(data => {
-            const action = { type: "LOGIN_USER", payload: data}
-            dispatch(action)
+            if(!data.errors) {
+                const action = { type: "LOGIN_USER", payload: data}
+                dispatch(action)
+            } else {
+                setLoading(false)
+            }
         })
     }
 };
@@ -22,14 +26,12 @@ export const signupUser = (user, navigate) => {
         })
         .then(res => res.json())
         .then(data => {
-            if(data.errors) {
-                dispatch(setErrors(data.errors))    
-            } else {
-                const action = { type: "SIGNUP_USER", payload: data }
+            if(!data.errors) {
+                const action = { type: "LOGIN_USER", payload: data }
                 dispatch(action)
-                dispatch({ type: "LOGIN_USER", payload: data })
-                dispatch(clearErrors())
                 navigate('/:user_name')
+            } else {
+                dispatch(setErrors(data.errors))
             }
         })
     }
@@ -46,13 +48,13 @@ export const loginUser = (user, navigate) => {
         })
         .then(res => res.json())
         .then(data => {
-            if(data.errors) {
-                dispatch(setErrors(data.errors))
-            } else {
+            if(!data.errors) {
                 const action = { type: "LOGIN_USER", payload: data }
                 dispatch(action)
                 dispatch(clearErrors())
                 navigate('/:user_name')
+            } else {
+                dispatch(setErrors(data.errors))
             }
         })
 

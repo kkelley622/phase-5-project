@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     dispatch(loadAppointments());
-    dispatch(loadCurrentUser());
+    dispatch(loadCurrentUser(setLoading));
     dispatch(loadMeds());
     dispatch(loadPrescriptions());
     dispatch(loadProblems());
