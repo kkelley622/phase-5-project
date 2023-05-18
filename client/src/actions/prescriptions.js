@@ -7,4 +7,20 @@ export const loadPrescriptions = () => {
             dispatch(action)
         })
     }
+};
+
+export const deletePrescription = (id) => {
+    return dispatch => {
+        fetch(`/prescriptions/${id}`, {
+            method: 'DELETE',
+            headers:{
+                'Accept': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            const action = { type: 'DELETE_PRESCRIPTION', payload: id}
+            dispatch(action)
+        })
+    }
 }
