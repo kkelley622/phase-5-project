@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
+import { addAppointment } from '../../actions/appointments';
+import { useNavigate } from 'react-router-dom';
+import {  useDispatch } from 'react-redux';
+
 
 const AppointmentForm = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         date: "",
         location: "",
@@ -11,8 +17,13 @@ const AppointmentForm = () => {
         setFormData({...formData, [e.target.name]: e.target.value})
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addAppointment(formData, navigate))
+    }
+
   return (
-    <form> Add an Appointment:
+    <form onSubmit={handleSubmit}> Add an Appointment:
         <br/>
         <label>Date</label>
         <input

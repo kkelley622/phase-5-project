@@ -1,3 +1,5 @@
+import { clearErrors, setErrors } from "./errors";
+
 export const loadAppointments = () => {
     return dispatch => {
         fetch('/appointments')
@@ -8,6 +10,29 @@ export const loadAppointments = () => {
         })
     }
 };
+
+export const addAppointment = (app, navigate) => {
+    return dispatch => {
+        fetch('/appointments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(app)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(!data.errors) {
+                const action = { type: 'ADD_APPOINTMENT', payload: data}
+                dispatch(action)
+                dispatch(clearErrors())
+                navigate('/;user_name')
+            } else {
+                dispatch(setErrors(data.errors))
+            }
+        })
+    }
+}
 
 export const deleteAppointment = (id) => {
     return dispatch => {
@@ -23,4 +48,5 @@ export const deleteAppointment = (id) => {
             dispatch(action)
         })
     }
-}
+};
+

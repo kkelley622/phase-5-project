@@ -7,4 +7,5 @@ export const loadProcedures = () => {
             dispatch(action)
         })
     }
-}
+};
+
