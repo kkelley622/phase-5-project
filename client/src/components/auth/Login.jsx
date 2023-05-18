@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../actions/users';
 
 const Login = () => {
-    const { loggedIn, currentUser } = useSelector(store => store.usersReducer);
+    const { currentUser } = useSelector(store => store.usersReducer);
     console.log("current user", currentUser)
     
     const navigate = useNavigate();

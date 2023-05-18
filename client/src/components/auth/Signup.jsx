@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import {  useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { signupUser } from '../../actions/users';
 
+
 const Signup = () => {
-    const dispatch = useDispatch();
+    const { loggedIn } = useSelector(store => store.usersReducer)
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -16,14 +18,20 @@ const Signup = () => {
         password_confirmation: "",
     });
 
+    useEffect(() => {
+        if(loggedIn) {
+            navigate('/:user_name')
+        }
+    }, [loggedIn, navigate])
+
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     };
 
     const handleSubmit = (e) => {
-        e.preventDefeault()
+        e.preventDefault()
         dispatch(signupUser(formData, navigate))
-    }
+    };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -57,14 +65,14 @@ const Signup = () => {
         />
         <label>Password</label>
         <input
-            type="password"
+            type="text"
             name="password"
             value={formData.password}
             onChange={handleChange}
         />
         <label>Password Confirmation</label>
         <input
-            type="password"
+            type="text"
             name="password_confirmation"
             value={formData.password_confirmation}
             onChange={handleChange}

@@ -1,6 +1,6 @@
 import { clearErrors, setErrors } from "./errors";
 
-export const loadCurrentUser = (setLoading) => {
+export const loadCurrentUser = () => {
     return dispatch => {
         fetch('/me')
         .then(res => res.json())
@@ -8,8 +8,6 @@ export const loadCurrentUser = (setLoading) => {
             if(!data.errors) {
                 const action = { type: "LOGIN_USER", payload: data}
                 dispatch(action)
-            } else {
-                setLoading(false)
             }
         })
     }
@@ -27,8 +25,8 @@ export const signupUser = (user, navigate) => {
         .then(res => res.json())
         .then(data => {
             if(!data.errors) {
-                const action = { type: "LOGIN_USER", payload: data }
-                dispatch(action)
+                dispatch({ type: "LOGIN_USER", payload: data })
+                dispatch(clearErrors())
                 navigate('/:user_name')
             } else {
                 dispatch(setErrors(data.errors))

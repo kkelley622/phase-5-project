@@ -38,17 +38,17 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Errors />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/:user_name" element={<Landing />} />
-        <Route path="/:user_name/meds" element={<MedList />} />
-        <Route path="/:user_name/appointments" element={<AppointmentsList />} />
-        <Route path="/:user_name/prescriptions" element={<PrescriptionsList />} />
-        <Route path="/:user_name/problems" element={<ProblemsList /> } />
-        <Route path="/:user_name/procedures" element={<ProceduresList />} />
-        <Route path="/:user_name/providers" element={<ProvidersList />} />
-      </Routes>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/:user_name" element={<Landing />} />
+          <Route path="/:user_name/meds" element={<MedList />} />
+          <Route path="/:user_name/appointments" element={<AppointmentsList />} />
+          <Route path="/:user_name/prescriptions" element={<PrescriptionsList />} />
+          <Route path="/:user_name/problems" element={<ProblemsList /> } />
+          <Route path="/:user_name/procedures" element={<ProceduresList />} />
+          <Route path="/:user_name/providers" element={<ProvidersList />} />
+        </Routes>
     </BrowserRouter>
   );
 }
