@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const AppointmentForm = () => {
+    const [formData, setFormData] = useState({
+        date: "",
+        location: "",
+        provider: ""
+    });
+
+    const handleChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value})
+    };
+
   return (
     <form> Add an Appointment:
         <br/>
@@ -8,8 +18,24 @@ const AppointmentForm = () => {
         <input
             type="text"
             name="date"
-            value="2023-12-25"
+            value={formData.date}
+            onChange={handleChange}
         />
+        <label>Location</label>
+        <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+        />
+        <label>Provider</label>
+        <input
+            type="text"
+            name="provider"
+            value={formData.provider}
+            onChange={handleChange}
+        />
+        <button>Submit</button>
     </form>
   )
 }
