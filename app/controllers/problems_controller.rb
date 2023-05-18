@@ -1,6 +1,9 @@
 class ProblemsController < ApplicationController
 
     before_action :find_problem, only: [:show]
+    before_action only: [:update, :destroy] do 
+        authorize_user_resource(@problem.user_id)
+    end
 
     def index 
         if params[:user_id]

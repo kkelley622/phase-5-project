@@ -2,7 +2,7 @@ class PrescriptionsController < ApplicationController
     
     before_action :find_prescription, only: [:show, :destroy]
     before_action only: [:update, :destroy] do 
-        authorize_user_resource(@appointment.user_id)
+        authorize_user_resource(@prescription.user_id)
     end
     
     def index
