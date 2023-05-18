@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../actions/users';
 
-const Login = () => {
-    const { currentUser } = useSelector(store => store.usersReducer);
-    console.log("current user", currentUser)
-    
+const Login = () => {    
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { loggedIn } = useSelector(store => store.usersReducer)
 
     const [formData, setFormData] = useState({
         user_name: "",
         password: "",
     });
+
+    useEffect(() => {
+        if(loggedIn) {
+            navigate('/:user_name')
+        }
+    }, [loggedIn, navigate])
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
