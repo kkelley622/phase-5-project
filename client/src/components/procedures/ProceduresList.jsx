@@ -14,7 +14,7 @@ const ProceduresList = () => {
     }
   }, [loggedIn, navigate])
   
-  const proceduresList = procedures.map(procedure => <ProcedureCard key={procedure.id} procedure={procedure}/>)
+  const proceduresList = procedures?.map(procedure => <ProcedureCard key={procedure.id} procedure={procedure}/>)
 
   return (
     <div>{proceduresList}</div>

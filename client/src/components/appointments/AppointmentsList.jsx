@@ -15,7 +15,7 @@ const AppointmentsList = () => {
     }
   }, [loggedIn, navigate]);
   
-  const appointmentsList = appointments.map(app => <AppointmentCard key={app.id} app={app}/>)
+  const appointmentsList = appointments?.map(app => <AppointmentCard key={app.id} app={app}/>)
 
 
   return (

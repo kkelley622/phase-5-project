@@ -14,7 +14,7 @@ const ProblemsList = () => {
     }
   }, [loggedIn, navigate])
   
-  const problemsList = problems.map(prob => <ProblemCard key={prob.id} prob={prob}/>)
+  const problemsList = problems?.map(prob => <ProblemCard key={prob.id} prob={prob}/>)
 
   return (
     <div>{problemsList}</div>
