@@ -7,4 +7,20 @@ export const loadProblems = () => {
             dispatch(action)
         })
     }
+};
+
+export const deleteProblem = (id) => {
+    return dispatch => {
+        fetch(`problems/${id}`, {
+            method: 'DELETE',
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            const action = { type: 'DELETE_PROBLEM', payload: id}
+            dispatch(action)
+        })
+    }
 }

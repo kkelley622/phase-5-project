@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
 
-    before_action :find_problem, only: [:show]
+    before_action :find_problem, only: [:show, :destroy]
     before_action only: [:update, :destroy] do 
         authorize_user_resource(@problem.user_id)
     end
@@ -22,6 +22,11 @@ class ProblemsController < ApplicationController
     def create 
         problem = Problem.create!(problem_params)
         render json: problem, status: :created
+    end
+
+    def destroy
+        @problem.destroy
+        render json: @problem, status: :ok 
     end
 
     private 
