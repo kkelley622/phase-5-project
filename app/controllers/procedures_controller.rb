@@ -1,6 +1,9 @@
 class ProceduresController < ApplicationController
 
     before_action :find_procedure, only: [:show, :destroy]
+    before_action only: [:update, :destroy] do 
+        authorize_user_resource(@procedure.user_id)
+    end
 
     def index
         if params[:user_id]
