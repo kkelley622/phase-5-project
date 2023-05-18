@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import ProblemCard from './ProblemCard'
 import { useNavigate } from 'react-router-dom';
+import ProblemForm from './ProblemForm';
 
 const ProblemsList = () => {
   const { loggedIn } = useSelector(store => store.usersReducer);
@@ -17,7 +18,10 @@ const ProblemsList = () => {
   const problemsList = problems?.map(prob => <ProblemCard key={prob.id} prob={prob}/>)
 
   return (
-    <div>{problemsList}</div>
+    <>
+      <div>{<ProblemForm />}</div>
+      <div>{problemsList}</div>
+    </>
   )
 }
 
