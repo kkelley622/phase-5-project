@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import AppointmentCard from './AppointmentCard';
 import { useNavigate } from 'react-router-dom';
+import AppointmentForm from './AppointmentForm';
 
 const AppointmentsList = () => {
   const appointments = useSelector(store => store.appointmentsReducer);
@@ -18,7 +19,10 @@ const AppointmentsList = () => {
 
 
   return (
+    <>
+    <div>{<AppointmentForm />}</div>
     <div>{appointmentsList}</div>
+    </>
   )
 }
 
