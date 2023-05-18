@@ -65,14 +65,14 @@ const Signup = () => {
         />
         <label>Password</label>
         <input
-            type="text"
+            type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
         />
         <label>Password Confirmation</label>
         <input
-            type="text"
+            type="password"
             name="password_confirmation"
             value={formData.password_confirmation}
             onChange={handleChange}
