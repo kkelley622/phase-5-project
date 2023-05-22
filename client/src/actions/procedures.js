@@ -11,7 +11,7 @@ export const loadProcedures = () => {
     }
 };
 
-const addProcedure = (procedure) => {
+export const addProcedure = (procedure) => {
     return dispatch => {
         fetch('/procedures', {
             method: 'POST',
@@ -23,7 +23,7 @@ const addProcedure = (procedure) => {
         .then(res => res.json())
         .then(data => {
             if(!data.errors) {
-                const action = { type: 'ADD_PROBLEM', payload: data}
+                const action = { type: 'ADD_PROCEDURE', payload: data}
                 dispatch(action)
                 dispatch(clearErrors())
             } else {
@@ -32,4 +32,25 @@ const addProcedure = (procedure) => {
         })
     }
 };
+
+export const deleteProcedure = (id) => {
+    return dispatch => {
+        fetch(`/procedures/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(!data.errors) {
+                const action = { type: 'DELETE_PROCEDURE', payload: id}
+                dispatch(action)
+                dispatch(clearErrors())
+            } else {
+                dispatch(setErrors(data.errors))
+            }
+        })
+    }
+}
 

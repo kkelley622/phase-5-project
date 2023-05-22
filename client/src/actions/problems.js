@@ -21,8 +21,13 @@ export const deleteProblem = (id) => {
         })
         .then(res => res.json())
         .then(data => {
-            const action = { type: 'DELETE_PROBLEM', payload: id}
-            dispatch(action)
+            if(!data.errors) {
+                const action = { type: 'DELETE_PROBLEM', payload: id}
+                dispatch(action)
+                dispatch(clearErrors())
+            } else {
+                dispatch(setErrors(data.errors))
+            }
         })
     }
 };
