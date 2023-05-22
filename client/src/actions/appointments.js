@@ -11,7 +11,7 @@ export const loadAppointments = () => {
     }
 };
 
-export const addAppointment = (app, navigate) => {
+export const addAppointment = (app) => {
     return dispatch => {
         fetch('/appointments', {
             method: 'POST',

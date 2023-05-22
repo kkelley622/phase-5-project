@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { addAppointment } from '../../actions/appointments';
-import { useNavigate } from 'react-router-dom';
 import {  useDispatch } from 'react-redux';
 
 
 const AppointmentForm = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         date: "",
         location: "",
-        provider_id: "",
+        provider_id: ""
     });
 
     const handleChange = (e) => {
@@ -19,7 +17,12 @@ const AppointmentForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addAppointment(formData, navigate))
+        dispatch(addAppointment(formData))
+        setFormData({
+            date: "",
+            location: "",
+            provider_id: ""
+        })
     }
 
   return (
