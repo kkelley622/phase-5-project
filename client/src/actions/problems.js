@@ -13,7 +13,7 @@ export const loadProblems = () => {
 
 export const deleteProblem = (id) => {
     return dispatch => {
-        fetch(`problems/${id}`, {
+        fetch(`/problems/${id}`, {
             method: 'DELETE',
             headers: {
                 "Accept": "application/json"
