@@ -43,8 +43,13 @@ export const deleteAppointment = (id) => {
         })
         .then(res => res.json())
         .then(data => {
-            const action = { type: "DELETE_APPOINTMENT", payload: id }
-            dispatch(action)
+            if(!data.errors) {
+                const action = { type: "DELETE_APPOINTMENT", payload: id }
+                dispatch(action)
+                dispatch(clearErrors())
+            } else {
+                dispatch(setErrors(data.errors))
+            }
         })
     }
 };
