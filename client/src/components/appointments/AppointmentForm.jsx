@@ -10,7 +10,7 @@ const AppointmentForm = () => {
     const [formData, setFormData] = useState({
         date: "",
         location: "",
-        provider: ""
+        provider_id: "",
     });
 
     const handleChange = (e) => {
@@ -42,8 +42,8 @@ const AppointmentForm = () => {
         <label>Provider</label>
         <input
             type="text"
-            name="provider"
-            value={formData.provider}
+            name="provider_id"
+            value={formData.provider_id}
             onChange={handleChange}
         />
         <button>Submit</button>

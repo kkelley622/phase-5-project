@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create 
-        appointment = Appointment.create!(apppointment_params)
+        appointment = current_user.appointments.create!(apppointment_params)
         render json: appointment, status: :created 
     end
 

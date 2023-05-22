@@ -26,7 +26,6 @@ export const addAppointment = (app, navigate) => {
                 const action = { type: 'ADD_APPOINTMENT', payload: data}
                 dispatch(action)
                 dispatch(clearErrors())
-                navigate('/;user_name')
             } else {
                 dispatch(setErrors(data.errors))
             }
