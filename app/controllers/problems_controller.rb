@@ -20,7 +20,7 @@ class ProblemsController < ApplicationController
     end
 
     def create 
-        problem = Problem.create!(problem_params)
+        problem = current_user.problems.create!(problem_params)
         render json: problem, status: :created
     end
 

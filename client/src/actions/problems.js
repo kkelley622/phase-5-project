@@ -23,4 +23,8 @@ export const deleteProblem = (id) => {
             dispatch(action)
         })
     }
+};
+
+export const addProblem = () => {
+    
 }
