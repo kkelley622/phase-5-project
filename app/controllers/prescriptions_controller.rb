@@ -20,7 +20,7 @@ class PrescriptionsController < ApplicationController
     end
 
     def create 
-        presciption = Prescription.create!(presciption_params)
+        presciption = current_user.prescriptions.create!(presciption_params)
         render json: presciption, status: :created
     end
 

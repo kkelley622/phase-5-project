@@ -20,7 +20,7 @@ class ProceduresController < ApplicationController
     end
 
     def create 
-        procedure = Procedure.create!(procedure_params)
+        procedure = current_user.procedures.create!(procedure_params)
         render json: procedure, status: :created 
     end
 
