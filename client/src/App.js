@@ -19,6 +19,7 @@ import { loadAppointments } from './actions/appointments';
 import { loadProblems } from './actions/problems';
 import { loadCurrentUser } from './actions/users';
 import { loadProcedures } from './actions/procedures';
+import { loadProviders } from './actions/providers';
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -32,6 +33,7 @@ function App() {
     dispatch(loadPrescriptions());
     dispatch(loadProblems());
     dispatch(loadProcedures());
+    dispatch(loadProviders());
   }, [dispatch])
 
   return (
