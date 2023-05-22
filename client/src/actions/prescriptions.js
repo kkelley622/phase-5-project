@@ -1,3 +1,5 @@
+import { clearErrors, setErrors } from './errors'
+
 export const loadPrescriptions = () => {
     return dispatch => {
         fetch('/prescriptions')
@@ -41,8 +43,13 @@ export const deletePrescription = (id) => {
         })
         .then(res => res.json())
         .then(data => {
-            const action = { type: 'DELETE_PRESCRIPTION', payload: id}
-            dispatch(action)
+            if(!data.errors) {
+                const action = { type: 'DELETE_PRESCRIPTION', payload: id}
+                dispatch(action)
+                dispatch(clearErrors())
+            } else {
+                dispatch(setErrors(data.errors))
+            }
         })
     }
 }

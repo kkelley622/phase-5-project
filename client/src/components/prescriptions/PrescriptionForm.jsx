@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { addPrescription } from '../../actions/prescriptions';
+
 
 const PrescriptionForm = () => {
+    const dispatch = useDispatch();
+
     const [formData, setFormData] = useState({
-        med: "",
+        medication_id: "",
         dose: "",
         frequency: "",
     });
@@ -11,16 +16,25 @@ const PrescriptionForm = () => {
         setFormData({...formData, [e.target.name]: e.target.value})
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        dispatch(addPrescription(formData))
+        setFormData({
+            medication_id: "",
+            dose: "",
+            frequency: ""
+        })
+    }
     
 
   return (
-    <form>Add a Prescription:
+    <form onSubmit={handleSubmit}>Add a Prescription:
         <br/>
         <label>Medication</label>
         <input 
             type="text"
-            name="med"
-            value={formData.med}
+            name="medication_id"
+            value={formData.medication_id}
             onChange={handleChange}
         />
         <label>Dose</label>
