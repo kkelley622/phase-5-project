@@ -1,3 +1,5 @@
+import { clearErrors, setErrors } from "./errors";
+
 export const loadProblems = () => {
     return dispatch => {
         fetch('/problems')
@@ -25,6 +27,24 @@ export const deleteProblem = (id) => {
     }
 };
 
-export const addProblem = () => {
-    
-}
+export const addProblem = (problem) => {
+    return dispatch => {
+        fetch('/problems', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(problem)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(!data.errors) {
+                const action = { type: 'ADD_PROBLEM', payload: data }
+                dispatch(action)
+                dispatch(clearErrors())
+            } else {
+                dispatch(setErrors(data.errors))
+            }
+        })
+    }
+};
