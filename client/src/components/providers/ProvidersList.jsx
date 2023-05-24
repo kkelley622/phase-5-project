@@ -12,12 +12,12 @@ const ProvidersList = () => {
     }
   }, [loggedIn, navigate])
 
-  const providersList = currentUser.providers.map(provider => <li key={provider.id}>{provider.first_name} {provider.last_name}</li>)
+  const providersList = currentUser?.providers.map(provider => <li key={provider.id}>{provider.first_name} {provider.last_name}</li>)
 
   return (
     <>
       <h1>My Providers</h1>
-      <div>{providersList}</div>
+      <ul>{providersList}</ul>
     </>
   )
 }

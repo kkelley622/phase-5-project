@@ -15,7 +15,7 @@ const PrescriptionsList = () => {
       }
     }, [loggedIn, navigate])
 
-    const prescriptionsList = prescriptions?.map(prescription => <PrescriptionCard key={prescription.id} prescription={prescription}/>)
+    const prescriptionsList = prescriptions.map(prescription => <PrescriptionCard key={prescription.id} prescription={prescription}/>)
 
   return (
     <>

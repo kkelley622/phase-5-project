@@ -1,16 +1,17 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { logoutUser } from '../../actions/users';
 
 const Navbar = () => {
   const { loggedIn } = useSelector(store => store.usersReducer);
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    fetch("/logout", {method: 'DELETE'})
+    fetch('/logout', {method: 'DELETE'})
     dispatch(logoutUser())
+    navigate('/login')
   };
 
   const loggedInLinks = () => {
