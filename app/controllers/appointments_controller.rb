@@ -6,8 +6,8 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        if params[:user_id]
-            user = User.find_by_id(params[:user_id])
+        if params[:user_name]
+            user = User.find_by(user_name: params[:user_name])
             @appointments = user.appointments
         else
             @appointments = Appointment.all
