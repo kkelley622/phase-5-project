@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPrescription } from '../../actions/prescriptions';
 
 
 const PrescriptionForm = () => {
+    const medications = useSelector(store => store.medsReducer)
     const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
@@ -24,19 +25,22 @@ const PrescriptionForm = () => {
             dose: "",
             frequency: ""
         })
-    }
+    };
+
+    const medicationsList = medications.map(medication => <option key={medication.id} value={medication.id}>{medication.generic_name}/{medication.brand_name}</option>)
     
 
   return (
     <form onSubmit={handleSubmit}>
         <br/>
-        <label>Medication</label>
-        <input 
+        <label htmlFor='medication_id'>Medication</label>
+        <select id="medication_id" name="medication_id" value={formData.medication_id} onChange={handleChange} defaultValue={"placeholder"}><option value={"placeholder"}>Select a Medication</option>{medicationsList}</select>
+        {/* <input 
             type="text"
             name="medication_id"
             value={formData.medication_id}
             onChange={handleChange}
-        />
+        /> */}
         <label>Dose</label>
         <input 
             type="text"

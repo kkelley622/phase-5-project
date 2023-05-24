@@ -53,12 +53,6 @@ const AppointmentForm = () => {
             onChange={handleChange}>
             {providersList}
         </select>
-        {/* <input
-            type="text"
-            name="provider_id"
-            value={formData.provider_id}
-            onChange={handleChange}
-        /> */}
         <button>Submit</button>
     </form>
   )
