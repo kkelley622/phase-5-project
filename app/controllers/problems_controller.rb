@@ -6,9 +6,8 @@ class ProblemsController < ApplicationController
     end
 
     def index 
-        if params[:user_id]
-            user = User.find_by_id(params[:user_id])
-            @problems = user.problems 
+        if current_user
+            @problems = current_user.problems 
         else
             @problems = Problem.all 
         end

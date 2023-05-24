@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        if (current_user)
+        if current_user
             @appointments = current_user.appointments
         else
             @appointments = Appointment.all 

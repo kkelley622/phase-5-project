@@ -6,9 +6,8 @@ class ProceduresController < ApplicationController
     end
 
     def index
-        if params[:user_id]
-            user = User.find_by_id(params[:user_id])
-            @procedures = user.procedures
+        if current_user
+            @procedures = current_user.procedures
         else
             @procedures = Procedure.all
         end 

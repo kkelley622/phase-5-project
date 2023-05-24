@@ -6,7 +6,7 @@ class PrescriptionsController < ApplicationController
     end
     
     def index
-        if (current_user) 
+        if current_user
             @prescriptions = current_user.prescriptions 
         else
             @prescriptions = Prescription.all
