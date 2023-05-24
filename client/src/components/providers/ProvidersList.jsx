@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
 const ProvidersList = () => {
-  const providers = useSelector(store => store.providersReducer);
-  const { loggedIn } = useSelector(store => store.usersReducer);
+  const { loggedIn, currentUser } = useSelector(store => store.usersReducer);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,7 +12,7 @@ const ProvidersList = () => {
     }
   }, [loggedIn, navigate])
 
-  const providersList = providers.map(provider => <li key={provider.id}>{provider.first_name} {provider.last_name}</li>)
+  const providersList = currentUser.providers.map(provider => <li key={provider.id}>{provider.first_name} {provider.last_name}</li>)
 
   return (
     <>
