@@ -6,12 +6,11 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        if params[:user_name]
-            user = User.find_by(user_name: params[:user_name])
-            @appointments = user.appointments
+        if (current_user)
+            @appointments = current_user.appointments
         else
-            @appointments = Appointment.all
-        end 
+            @appointments = Appointment.all 
+        end
         render json: @appointments, status: :ok 
     end
 

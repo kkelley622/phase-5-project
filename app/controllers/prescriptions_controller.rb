@@ -6,9 +6,8 @@ class PrescriptionsController < ApplicationController
     end
     
     def index
-        if params[:user_id] 
-            user = User.find_by_id(params[:user_id])
-            @prescriptions = user.prescriptions 
+        if (current_user) 
+            @prescriptions = current_user.prescriptions 
         else
             @prescriptions = Prescription.all
         end 
