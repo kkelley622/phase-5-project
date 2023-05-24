@@ -20,8 +20,10 @@ const AppointmentsList = () => {
 
   return (
     <>
-    <div>{<AppointmentForm />}</div>
-    <div>{appointmentsList}</div>
+      <h1>Add a New Appointment</h1>
+      <div>{<AppointmentForm />}</div>
+      <h1>My Appointments</h1>
+      <div>{appointmentsList}</div>
     </>
   )
 }

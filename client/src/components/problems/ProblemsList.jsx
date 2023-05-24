@@ -19,7 +19,9 @@ const ProblemsList = () => {
 
   return (
     <>
+      <h1>Add a New Problem</h1>
       <div>{<ProblemForm />}</div>
+      <h1>My Problems</h1>
       <div>{problemsList}</div>
     </>
   )

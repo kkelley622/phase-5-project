@@ -18,6 +18,7 @@ const Navbar = () => {
       <>
         <li><Link to="/:username">Home</Link></li>
         <li><Link to="/:user_name/appointments">Appointments</Link></li>
+        <li><Link to="/:user_name/providers">Providers</Link></li>
         <li><Link to="/:user_name/prescriptions">Prescriptions</Link></li>
         <li><Link to="/:user_name/problems">Problems</Link></li>
         <li><Link to="/:user_name/procedures">Procedures</Link></li>

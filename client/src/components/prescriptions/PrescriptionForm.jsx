@@ -28,7 +28,7 @@ const PrescriptionForm = () => {
     
 
   return (
-    <form onSubmit={handleSubmit}>Add a Prescription:
+    <form onSubmit={handleSubmit}>
         <br/>
         <label>Medication</label>
         <input 

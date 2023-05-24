@@ -19,7 +19,9 @@ const ProceduresList = () => {
 
   return (
     <>
+      <h1>Add a New Procedure</h1>
       <div>{<ProcedureForm />}</div>
+      <h1>My Procedures</h1>
       <div>{proceduresList}</div>
     
     </>

@@ -18,7 +18,7 @@ const ProblemForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>Add a New Problem or Diagnosis:
+    <form onSubmit={handleSubmit}>
         <br/>
         <label>Problem/Diagnosis</label>
         <input 

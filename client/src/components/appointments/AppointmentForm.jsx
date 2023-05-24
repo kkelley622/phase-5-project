@@ -26,7 +26,7 @@ const AppointmentForm = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit}> Add an Appointment:
+    <form onSubmit={handleSubmit}>
         <br/>
         <label>Date</label>
         <input

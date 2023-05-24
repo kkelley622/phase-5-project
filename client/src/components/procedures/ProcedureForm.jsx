@@ -24,7 +24,7 @@ const ProcedureForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>Add a Procedure:
+    <form onSubmit={handleSubmit}>
         <br/>
         <label>Procedure</label>
         <input 

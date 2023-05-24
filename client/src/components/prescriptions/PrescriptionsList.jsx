@@ -19,10 +19,12 @@ const PrescriptionsList = () => {
 
   return (
     <>
-    <div>{<PrescriptionForm />}</div>
-    <div>{prescriptionsList}</div>
+      <h1>Add a New Prescription</h1>
+      <div>{<PrescriptionForm />}</div>
+      <h1>My Prescriptions</h1>
+      <div>{prescriptionsList}</div>
     </>
   )
 }
 
-export default PrescriptionsList
+export default PrescriptionsList;
