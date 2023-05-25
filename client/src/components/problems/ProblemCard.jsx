@@ -13,7 +13,6 @@ const ProblemCard = ({ prob }) => {
     <>
         <figure>
             <h1>{prob.description}</h1>
-            <h2>{prob.created_at}</h2>
             <button onClick={handleDelete}>Remove</button>
         </figure>
     </>
