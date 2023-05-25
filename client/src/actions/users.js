@@ -1,4 +1,8 @@
+import { loadAppointments } from "./appointments";
 import { clearErrors, setErrors } from "./errors";
+import { loadPrescriptions } from "./prescriptions";
+import { loadProblems } from "./problems";
+import { loadProcedures } from "./procedures";
 
 export const loadCurrentUser = () => {
     return dispatch => {
@@ -50,7 +54,11 @@ export const loginUser = (user, navigate) => {
                 const action = { type: "LOGIN_USER", payload: data }
                 dispatch(action)
                 dispatch(clearErrors())
-                navigate('/:user_name')
+                dispatch(loadAppointments())
+                dispatch(loadPrescriptions())
+                dispatch(loadProblems())
+                dispatch(loadProcedures())
+                navigate('/')
             } else {
                 dispatch(setErrors(data.errors))
             }
@@ -60,5 +68,7 @@ export const loginUser = (user, navigate) => {
 };
 
 export const logoutUser = () => {
-    return { type: "LOGOUT_USER"}
+    return dispatch => {
+        dispatch({ type: "LOGOUT_USER"})
+    }
 };

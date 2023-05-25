@@ -11,7 +11,7 @@ const PrescriptionsLanding = () => {
     <container>
         <h2>Some of My Prescriptions</h2>
         <ul>{limitedPrescriptions}</ul>
-        <Link to="/:user_name/prescriptions">All of My Prescriptions</Link>
+        <Link to="/prescriptions">All of My Prescriptions</Link>
     </container>
   )
 }

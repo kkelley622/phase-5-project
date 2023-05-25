@@ -15,7 +15,7 @@ const Login = () => {
 
     useEffect(() => {
         if(loggedIn) {
-            navigate('/:user_name')
+            navigate('/')
         }
     }, [loggedIn, navigate])
 

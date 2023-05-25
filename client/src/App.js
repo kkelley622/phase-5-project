@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar';
 import Login from './components/auth/Login';
@@ -23,16 +23,11 @@ import { loadProviders } from './actions/providers';
 
 function App() {
   const [loading, setLoading] = useState(true)
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadAppointments());
     dispatch(loadCurrentUser(setLoading));
     dispatch(loadMeds());
-    dispatch(loadPrescriptions());
-    dispatch(loadProblems());
-    dispatch(loadProcedures());
     dispatch(loadProviders());
   }, [dispatch])
 
@@ -43,13 +38,13 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/:user_name" element={<Landing />} />
-          <Route path="/:user_name/meds" element={<MedList />} />
-          <Route path="/:user_name/appointments" element={<AppointmentsList />} />
-          <Route path="/:user_name/prescriptions" element={<PrescriptionsList />} />
-          <Route path="/:user_name/problems" element={<ProblemsList /> } />
-          <Route path="/:user_name/procedures" element={<ProceduresList />} />
-          <Route path="/:user_name/providers" element={<ProvidersList />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/meds" element={<MedList />} />
+          <Route path="/appointments" element={<AppointmentsList />} />
+          <Route path="/prescriptions" element={<PrescriptionsList />} />
+          <Route path="/problems" element={<ProblemsList /> } />
+          <Route path="/procedures" element={<ProceduresList />} />
+          <Route path="/providers" element={<ProvidersList />} />
         </Routes>
     </BrowserRouter>
   );

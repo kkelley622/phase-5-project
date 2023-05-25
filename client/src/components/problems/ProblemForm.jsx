@@ -15,6 +15,7 @@ const ProblemForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addProblem(formData))
+    setFormData({description: ""})
   }
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ProceduresLanding = () => {
     const procedures = useSelector(store => store.proceduresReducer);
@@ -10,7 +10,7 @@ const ProceduresLanding = () => {
     <container>
         <h2>Some of My Procedures</h2>
         <ul>{limitedProcedures}</ul>
-        <Link to="/:user_name/procedures">All of My Procedures</Link>
+        <Link to="/procedures">All of My Procedures</Link>
     </container>
   )
 }

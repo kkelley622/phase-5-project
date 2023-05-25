@@ -7,6 +7,7 @@ const Navbar = () => {
   const { loggedIn } = useSelector(store => store.usersReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { currentUser } = useSelector(store => store.usersReducer);
 
   const handleClick = () => {
     fetch('/logout', {method: 'DELETE'})
@@ -17,13 +18,13 @@ const Navbar = () => {
   const loggedInLinks = () => {
     return (
       <>
-        <li><Link to="/:username">Home</Link></li>
-        <li><Link to="/:user_name/appointments">Appointments</Link></li>
-        <li><Link to="/:user_name/providers">Providers</Link></li>
-        <li><Link to="/:user_name/prescriptions">Prescriptions</Link></li>
-        <li><Link to="/:user_name/problems">Problems</Link></li>
-        <li><Link to="/:user_name/procedures">Procedures</Link></li>
-        <li><Link to="#" onClick={handleClick}>Logout</Link></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/appointments">Appointments</Link></li>
+        <li><Link to="/providers">Providers</Link></li>
+        <li><Link to="/prescriptions">Prescriptions</Link></li>
+        <li><Link to="/problems">Problems</Link></li>
+        <li><Link to="/procedures">Procedures</Link></li>
+        <li><Link to="#" onClick={handleClick}>Logout </Link>{currentUser.user_name}</li>
       </>
     )
   };
