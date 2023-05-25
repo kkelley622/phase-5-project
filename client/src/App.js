@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar';
 import Login from './components/auth/Login';
@@ -14,11 +14,7 @@ import ProvidersList from './components/providers/ProvidersList';
 import { useEffect, useState } from 'react';
 import { loadMeds } from './actions/meds';
 import PrescriptionsList from './components/prescriptions/PrescriptionsList';
-import { loadPrescriptions } from './actions/prescriptions';
-import { loadAppointments } from './actions/appointments';
-import { loadProblems } from './actions/problems';
 import { loadCurrentUser } from './actions/users';
-import { loadProcedures } from './actions/procedures';
 import { loadProviders } from './actions/providers';
 import AppointmentEdit from './components/appointments/AppointmentEdit';
 

@@ -45,9 +45,13 @@ export const editAppointment = (id, formData, navigate) => {
         })
         .then(res => res.json())
         .then(data => {
-            const action = { type: 'EDIT_APPOINTMENT', payload: data}
-            dispatch(action)
-            navigate('/appointments')
+            if(!data.errors) {
+                const action = { type: 'EDIT_APPOINTMENT', payload: data}
+                dispatch(action)
+                navigate('/appointments')
+            } else {
+                dispatch(setErrors(data.errors))
+            }
         })
     }
 }
