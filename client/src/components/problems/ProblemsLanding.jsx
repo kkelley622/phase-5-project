@@ -9,7 +9,7 @@ const ProblemsLanding = () => {
   return (
     <container>
         <h2>Some of My Problems</h2>
-        {limitedProblems}
+        <ul>{limitedProblems}</ul>
         <Link to="/:user_name/problems">All of My Problems</Link>
     </container>
   )

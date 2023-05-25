@@ -10,7 +10,7 @@ const PrescriptionsLanding = () => {
   return (
     <container>
         <h2>Some of My Prescriptions</h2>
-        {limitedPrescriptions}
+        <ul>{limitedPrescriptions}</ul>
         <Link to="/:user_name/prescriptions">All of My Prescriptions</Link>
     </container>
   )

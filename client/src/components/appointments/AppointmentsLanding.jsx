@@ -9,7 +9,7 @@ const AppointmentsLanding = () => {
   return (
     <container>
         <h2>Some of My Appointments</h2>
-        {limitedAppointments}
+        <ul>{limitedAppointments}</ul>
         <Link to="/:user_name/appointments">All of My Appointments</Link>
     </container>
   )
