@@ -31,6 +31,25 @@ export const addAppointment = (app) => {
             }
         })
     }
+};
+
+export const editAppointment = (id, formData, navigate) => {
+    return dispatch => {
+        fetch(`/appointments/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            const action = { type: 'EDIT_APPOINTMENT', payload: data}
+            dispatch(action)
+            navigate('/appointments')
+        })
+    }
 }
 
 export const deleteAppointment = (id) => {

@@ -20,6 +20,7 @@ import { loadProblems } from './actions/problems';
 import { loadCurrentUser } from './actions/users';
 import { loadProcedures } from './actions/procedures';
 import { loadProviders } from './actions/providers';
+import AppointmentEdit from './components/appointments/AppointmentEdit';
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -41,6 +42,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/meds" element={<MedList />} />
           <Route path="/appointments" element={<AppointmentsList />} />
+          <Route path="/appointments/:id/edit" element={<AppointmentEdit />}/>
           <Route path="/prescriptions" element={<PrescriptionsList />} />
           <Route path="/problems" element={<ProblemsList /> } />
           <Route path="/procedures" element={<ProceduresList />} />
