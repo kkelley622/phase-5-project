@@ -17,14 +17,22 @@ import PrescriptionsList from './components/prescriptions/PrescriptionsList';
 import { loadCurrentUser } from './actions/users';
 import { loadProviders } from './actions/providers';
 import AppointmentEdit from './components/appointments/AppointmentEdit';
+import { loadAppointments } from './actions/appointments';
+import { loadPrescriptions } from './actions/prescriptions';
+import { loadProblems } from './actions/problems';
+import { loadProcedures } from './actions/procedures';
 
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(loadAppointments());
     dispatch(loadCurrentUser(setLoading));
     dispatch(loadMeds());
+    dispatch(loadPrescriptions());
+    dispatch(loadProblems());
+    dispatch(loadProcedures());
     dispatch(loadProviders());
   }, [dispatch])
 
