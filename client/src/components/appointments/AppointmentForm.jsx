@@ -8,6 +8,7 @@ const AppointmentForm = () => {
     const providers = useSelector(store => store.providersReducer);
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
+        date: "",
         location: "",
         provider_id: ""
     });
@@ -25,6 +26,7 @@ const AppointmentForm = () => {
         e.preventDefault();
         dispatch(addAppointment(formData, date))
         setFormData({
+            date: "",
             location: "",
             provider_id: ""
         })
@@ -45,14 +47,14 @@ const AppointmentForm = () => {
             <option value={"placeholder"}>Select a Provider</option>
             {providersList}
         </select>
-        {/* <label htmlFor='date'>Date</label>
+        <label htmlFor='date'>Date</label>
         <input
             id="date"
             type="text"
             name="date"
             value={formData.date}
             onChange={handleChange}
-        /> */}
+        />
         <label htmlFor='location'>Location</label>
         <input
             id="location"
@@ -61,7 +63,7 @@ const AppointmentForm = () => {
             value={formData.location}
             onChange={handleChange}
         />
-        <Calendar id="date" name="date" value={date.toDateString()} onChange={handleDateChange} />
+        {/* <Calendar id="date" name="date" value={date.toDateString()} onChange={handleDateChange} /> */}
         <button>Submit</button>
     </form>
   )
