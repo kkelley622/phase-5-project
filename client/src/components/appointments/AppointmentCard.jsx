@@ -15,7 +15,7 @@ const AppointmentCard = ({ app }) => {
   return (
     <>
         <figure>
-            <h1>{moment(app.date).format('MM/DD/YYYY')}</h1>
+            <h1>{moment(app.date).format('MMMM Do YYYY h:mm a')}</h1>
             <h2>{app.location}</h2>
             <h2>{app.provider.last_name}, {app.provider.first_name}</h2>
             <h3>{app.provider.specialty}</h3>
