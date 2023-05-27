@@ -12,6 +12,7 @@ const AppointmentEdit = () => {
     const [formData, setFormData] = useState({
         provider_id: "",
         date: "",
+        time: "",
         location: ""
     });
 
@@ -24,6 +25,7 @@ const AppointmentEdit = () => {
             console.log(app)
             setFormData({
                 date: app.date,
+                time: app.datetime,
                 location: app.location
             })
         }
@@ -44,10 +46,18 @@ const AppointmentEdit = () => {
         <form onSubmit={handleSubmit}>
             <label>Date</label>
             <input 
-                type="text"
+                type="date"
                 id="date"
                 name="date"
                 value={formData.date}
+                onChange={handleChange}
+            />
+            <label>Time</label>
+            <input 
+                type="time"
+                id="time"
+                name="time"
+                value={formData.time}
                 onChange={handleChange}
             />
             <label>Location</label>

@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
 
     def index
         if current_user
-            @appointments = current_user.appointments
+            @appointments = current_user.appointments.order(:date)
         else
             @appointments = Appointment.all 
         end

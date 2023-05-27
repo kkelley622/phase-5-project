@@ -60,6 +60,7 @@ const AppointmentForm = () => {
             type='time'
             name='time'
             value={formData.time}
+            onChange={handleChange}
         />
         <label htmlFor='location'>Location</label>
         <input
