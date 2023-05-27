@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { addAppointment } from '../../actions/appointments';
 import {  useDispatch, useSelector } from 'react-redux';
-import Calendar from 'react-calendar';
-
 
 const AppointmentForm = () => {
     const providers = useSelector(store => store.providersReducer);
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         date: "",
+        time: "",
         location: "",
         provider_id: ""
     });
@@ -50,10 +49,17 @@ const AppointmentForm = () => {
         <label htmlFor='date'>Date</label>
         <input
             id="date"
-            type="text"
+            type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
+        />
+        <label htmlFor='time'>Time</label>
+        <input 
+            id='time'
+            type='time'
+            name='time'
+            value={formData.time}
         />
         <label htmlFor='location'>Location</label>
         <input
