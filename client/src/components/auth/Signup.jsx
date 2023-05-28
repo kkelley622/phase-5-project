@@ -36,47 +36,59 @@ const Signup = () => {
   return (
     <form onSubmit={handleSubmit}>
         <label>First Name</label>
+        <br/>
         <input
             type="text"
             name="first_name"
             value={formData.first_name}
             onChange={handleChange}
         />
+        <br/>
         <label>Last Name</label>
+        <br/>
         <input
             type="text"
             name="last_name"
             value={formData.last_name}
             onChange={handleChange}
         />
+        <br/>
         <label>Date of Birth</label>
+        <br/>
         <input
-            type="text"
+            type="date"
             name="dob"
             value={formData.dob}
             onChange={handleChange}
         />
+        <br/>
         <label>Username</label>
+        <br/>
         <input
             type="text"
             name="user_name"
             value={formData.user_name}
             onChange={handleChange}
         />
+        <br/>
         <label>Password</label>
+        <br/>
         <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
         />
+        <br/>
         <label>Password Confirmation</label>
+        <br/>
         <input
             type="password"
             name="password_confirmation"
             value={formData.password_confirmation}
             onChange={handleChange}
         />
+        <br/>
         <input type="submit" value="Signup" />
     </form>
   )

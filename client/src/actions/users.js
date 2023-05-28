@@ -31,7 +31,11 @@ export const signupUser = (user, navigate) => {
             if(!data.errors) {
                 dispatch({ type: "LOGIN_USER", payload: data })
                 dispatch(clearErrors())
-                navigate('/:user_name')
+                dispatch(loadAppointments())
+                dispatch(loadPrescriptions())
+                dispatch(loadProblems())
+                dispatch(loadProcedures())
+                navigate('/')
             } else {
                 dispatch(setErrors(data.errors))
             }

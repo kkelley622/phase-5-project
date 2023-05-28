@@ -31,19 +31,23 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit}>
         <label>Username</label>
+        <br/>
         <input
             type="text"
             name="user_name"
             value={formData.user_name}
             onChange={handleChange}
         />
+        <br/>
         <label>Password</label>
+        <br/>
         <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
         />
+        <br/>
         <input type="submit" value="Login" />
     </form>
   )

@@ -26,16 +26,17 @@ const ProcedureForm = () => {
   return (
     <form onSubmit={handleSubmit}>
         <br/>
-        <label>Procedure</label>
+        <label htmlFor='description'>Procedure</label>
         <input 
             type="text"
             name="description"
             value={formData.description}
             onChange={handleChange}
         />
-        <label>Date</label>
+        <label htmlFor='date'>Date</label>
         <input 
-          type="text"
+          id="date"
+          type="date"
           name="date"
           value={formData.date}
           onChange={handleChange}

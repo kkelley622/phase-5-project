@@ -21,7 +21,7 @@ const ProblemForm = () => {
   return (
     <form onSubmit={handleSubmit}>
         <br/>
-        <label>Problem/Diagnosis</label>
+        <label htmlFor='description'>Problem/Diagnosis</label>
         <input 
             type="text"
             name="description"

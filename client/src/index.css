@@ -1,13 +1,137 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* *, *:before, *:after {
+  box-sizing: border-box;
+} */
+
+/* :root {
+  --bg: #FFFFFF;
+  --header: #1d4b4a;
+  --link: #54b2af;
+  --text: #b1dbd7;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: "Merriweather", "Georgia", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  color: var(--text);
 }
+
+h1,
+h3 {
+  font-size: 2em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: "900";
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.App {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 2rem;
+  max-width: 700px;
+  padding-bottom: "5%";
+}
+
+header h1 {
+  font-size: 4em;
+}
+
+article {
+  margin-bottom: 3rem;
+}
+
+article p {
+  margin-top: 0.25rem;
+}
+
+article h3 {
+  margin-bottom: 0rem;
+}
+
+form {
+  align-items: center;
+  padding-top: 2rem;
+  font-weight: bold;
+}
+
+form > * {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+figure {
+  position: relative;
+  min-width: 320px;
+  max-width: 480px;
+  max-height: 480px;
+  background-color: #1d4b4a;
+}
+
+figure img {
+  min-height: 100px;
+  max-width: 100px;
+}
+
+figure h1 {
+  font-size: large;
+}
+
+figure h2 {
+  font-size: medium;
+}
+
+figure h3 {
+  font-size: small;
+}
+
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #6060e2;
+}
+
+nav li {
+  display: inline;
+  float: left;
+  display:block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div {
+  font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+}
+ */
+ body {
+  background-color: #FFFFFF;
+ }
+
+ form {
+  padding: 0.5%;
+ }
+
+ input {
+  width: 15%;
+  padding: 3px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+ }
