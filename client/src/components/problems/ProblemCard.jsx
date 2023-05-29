@@ -10,12 +10,10 @@ const ProblemCard = ({ prob }) => {
     dispatch(deleteProblem(prob.id))
   }
   return (
-    <>
-        <figure>
-            <h1>{prob.description}</h1>
-            <button onClick={handleDelete}>Remove</button>
-        </figure>
-    </>
+    <div className='card'>
+        <h1>{prob.description}</h1>
+        <button onClick={handleDelete}>Remove</button>
+    </div>
   )
 }
 

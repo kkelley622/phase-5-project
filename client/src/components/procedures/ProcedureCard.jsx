@@ -11,11 +11,11 @@ const ProcedureCard = ({ procedure }) => {
   }
 
   return (
-    <>
+    <div className='card'>
       <h1>{procedure.description}</h1>
       <h2>{moment(procedure.date).format("MM/YYYY")}</h2>
       <button onClick={handleDelete}>Remove</button>
-    </>
+    </div>
   )
 }
 
