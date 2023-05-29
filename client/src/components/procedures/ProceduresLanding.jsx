@@ -7,11 +7,11 @@ const ProceduresLanding = () => {
 
     const limitedProcedures = procedures.slice(0,5).map(procedure => <li key={procedure.id}>{procedure.description}</li>)
   return (
-    <container>
-        <h2>Some of My Procedures</h2>
-        <ul>{limitedProcedures}</ul>
-        <Link to="/procedures">All of My Procedures</Link>
-    </container>
+    <div className='grid-item'>
+      <h1>Some of My Procedures</h1>
+      <ul>{limitedProcedures}</ul>
+      <Link to="/procedures">All of My Procedures</Link>
+    </div>
   )
 }
 

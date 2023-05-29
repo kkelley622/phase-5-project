@@ -8,11 +8,11 @@ const PrescriptionsLanding = () => {
     const limitedPrescriptions = prescriptions.slice(0,5).map(prescription => <li key={prescription.id}>{prescription.medication.generic_name} {prescription.dose}</li>)
 
   return (
-    <container>
-        <h2>Some of My Prescriptions</h2>
-        <ul>{limitedPrescriptions}</ul>
-        <Link to="/prescriptions">All of My Prescriptions</Link>
-    </container>
+    <div className='grid-item'>
+      <h1>Some of My Prescriptions</h1>
+      <ul>{limitedPrescriptions}</ul>
+      <Link to="/prescriptions">All of My Prescriptions</Link>
+    </div>
   )
 }
 

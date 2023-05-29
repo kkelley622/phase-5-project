@@ -176,10 +176,28 @@ h3 {
     transition: 0.3s;
     border-radius: 5px;
     width: 25%;
+    background-color: #b1dbd7;
   }
 
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
+
+.grid-item {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  /* width: 50%; */
+  background-color: #54b2af;
+}
+
+.grid-container {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  padding: 5%;
+}
+
 
   

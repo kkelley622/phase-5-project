@@ -17,12 +17,12 @@ const Landing = () => {
   }, [loggedIn, navigate]);
 
   return (
-    <>
+    <div className='grid-container'>
       <AppointmentsLanding />
       <PrescriptionsLanding />
       <ProblemsLanding />
       <ProceduresLanding />
-    </>
+    </div>
   )
 }
 

@@ -7,11 +7,11 @@ const ProblemsLanding = () => {
 
     const limitedProblems = problems.slice(0,5).map(problem => <li key={problem.id}>{problem.description}</li>)
   return (
-    <container>
-        <h2>Some of My Problems</h2>
+    <div className='grid-item'>
+        <h1>Some of My Problems</h1>
         <ul>{limitedProblems}</ul>
         <Link to="/problems">All of My Problems</Link>
-    </container>
+    </div>
   )
 }
 
