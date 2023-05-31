@@ -11,8 +11,8 @@ const ProblemCard = ({ prob }) => {
   }
   return (
     <div className='card'>
-        <h1>{prob.description}</h1>
-        <button onClick={handleDelete}>Remove</button>
+      <h2>{prob.description}</h2>
+      <button onClick={handleDelete}>Remove</button>
     </div>
   )
 }

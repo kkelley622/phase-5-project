@@ -27,20 +27,22 @@ const PrescriptionForm = () => {
         })
     };
 
-    const medicationsList = medications.map(medication => <option key={medication.id} value={medication.id}>{medication.generic_name}/{medication.brand_name}</option>)
-    
+    const medicationsList = medications.length > 0 ? 
+        medications.map(medication => <option key={medication.id} value={medication.id}>{medication.generic_name}/{medication.brand_name}</option>)
+        : "Loading";
 
   return (
     <form onSubmit={handleSubmit}>
         <br/>
         <label htmlFor='medication_id'>Medication</label>
-        <select id="medication_id" name="medication_id" value={formData.medication_id} onChange={handleChange} defaultValue={"placeholder"}><option value={"placeholder"}>Select a Medication</option>{medicationsList}</select>
-        {/* <input 
-            type="text"
-            name="medication_id"
-            value={formData.medication_id}
-            onChange={handleChange}
-        /> */}
+        <select 
+            id="medication_id" 
+            name="medication_id" 
+            value={formData.medication_id} 
+            onChange={handleChange} 
+            // defaultValue={"placeholder"}
+            >
+        <option value={"placeholder"}>Select a Medication</option>{medicationsList}</select>
         <label>Dose</label>
         <input 
             type="text"

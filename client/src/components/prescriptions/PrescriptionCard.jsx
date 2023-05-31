@@ -12,8 +12,8 @@ const PrescriptionCard = ({ prescription }) => {
 
   return (
     <div className='card'>
-      <h1>{prescription.medication.generic_name}/{prescription.medication.brand_name}</h1>
-      <h2>{prescription.dose} {prescription.frequency}</h2>
+      <h2>{prescription.medication.generic_name}/{prescription.medication.brand_name}</h2>
+      <h3>{prescription.dose} {prescription.frequency}</h3>
       <button onClick={handleDelete}>No Longer Taking</button>
     </div>
   )

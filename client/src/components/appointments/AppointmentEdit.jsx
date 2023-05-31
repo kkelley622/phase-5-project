@@ -29,7 +29,7 @@ const AppointmentEdit = () => {
                 location: app.location
             })
         }
-    }, [loggedIn, navigate, appointments, id]);
+    }, [loggedIn, navigate, appointments, id, app]);
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})

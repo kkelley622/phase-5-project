@@ -4,7 +4,7 @@ import { loadPrescriptions } from "./prescriptions";
 import { loadProblems } from "./problems";
 import { loadProcedures } from "./procedures";
 
-export const loadCurrentUser = () => {
+export const loadCurrentUser = (setLoading) => {
     return dispatch => {
         fetch('/me')
         .then(res => res.json())
@@ -13,6 +13,7 @@ export const loadCurrentUser = () => {
                 const action = { type: "LOGIN_USER", payload: data}
                 dispatch(action)
             }
+            setLoading(false)
         })
     }
 };
@@ -28,7 +29,9 @@ export const signupUser = (user, navigate) => {
         })
         .then(res => res.json())
         .then(data => {
-            if(!data.errors) {
+            if(data.errors) {
+                dispatch(setErrors(data.errors))
+            } else {
                 dispatch({ type: "LOGIN_USER", payload: data })
                 dispatch(clearErrors())
                 dispatch(loadAppointments())
@@ -36,8 +39,6 @@ export const signupUser = (user, navigate) => {
                 dispatch(loadProblems())
                 dispatch(loadProcedures())
                 navigate('/')
-            } else {
-                dispatch(setErrors(data.errors))
             }
         })
     }
@@ -54,7 +55,9 @@ export const loginUser = (user, navigate) => {
         })
         .then(res => res.json())
         .then(data => {
-            if(!data.errors) {
+            if(data.errors) {
+                dispatch(setErrors(data.errors))
+            } else {
                 const action = { type: "LOGIN_USER", payload: data }
                 dispatch(action)
                 dispatch(clearErrors())
@@ -63,16 +66,15 @@ export const loginUser = (user, navigate) => {
                 dispatch(loadProblems())
                 dispatch(loadProcedures())
                 navigate('/')
-            } else {
-                dispatch(setErrors(data.errors))
             }
         })
 
     }
 };
 
-export const logoutUser = () => {
+export const logoutUser = (navigate) => {
     return dispatch => {
         dispatch({ type: "LOGOUT_USER"})
+        navigate('/login')
     }
 };

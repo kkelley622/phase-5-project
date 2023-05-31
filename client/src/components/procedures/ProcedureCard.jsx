@@ -12,8 +12,8 @@ const ProcedureCard = ({ procedure }) => {
 
   return (
     <div className='card'>
-      <h1>{procedure.description}</h1>
-      <h2>{moment(procedure.date).format("MM/YYYY")}</h2>
+      <h2>{procedure.description}</h2>
+      <h3>{moment(procedure.date).format("MM/YYYY")}</h3>
       <button onClick={handleDelete}>Remove</button>
     </div>
   )

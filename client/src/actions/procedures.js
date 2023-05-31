@@ -5,8 +5,10 @@ export const loadProcedures = () => {
         fetch('/procedures')
         .then(res => res.json())
         .then(data => {
-            const action = { type: "LOAD_PROCEDURES", payload: data}
-            dispatch(action)
+            if(!data.errors) {
+                const action = { type: "LOAD_PROCEDURES", payload: data}
+                dispatch(action)
+            }
         })
     }
 };

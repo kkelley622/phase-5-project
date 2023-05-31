@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :prescriptions, only: [:index, :show, :create, :destroy]
   resources :problems
   resources :procedures, only: [:index, :show, :create, :destroy]
-  resources :providers, only: [:index]
+  resources :providers, only: [:index, :create]
   resources :users, only: [:index, :show]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

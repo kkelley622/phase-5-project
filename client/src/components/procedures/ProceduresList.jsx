@@ -12,7 +12,7 @@ const ProceduresList = () => {
   useEffect(() => {
     if(!loggedIn) {
       navigate('/login')
-    }
+    } 
   }, [loggedIn, navigate])
   
   const proceduresList = procedures.map(procedure => <ProcedureCard key={procedure.id} procedure={procedure}/>)

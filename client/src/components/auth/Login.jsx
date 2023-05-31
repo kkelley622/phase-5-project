@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../actions/users';
+// import { clearErrors } from '../../actions/errors';
 
 const Login = () => {    
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { loggedIn } = useSelector(store => store.usersReducer)
+    const { loggedIn } = useSelector(store => store.usersReducer);
+    // const errors = useSelector(store => store.errorsReducer);
+
+    // const errorsList = errors.map(error => <li key={error.id}>{error}</li>)
 
     const [formData, setFormData] = useState({
         user_name: "",
@@ -16,8 +20,8 @@ const Login = () => {
     useEffect(() => {
         if(loggedIn) {
             navigate('/')
-        }
-    }, [loggedIn, navigate])
+        } 
+    }, [loggedIn, navigate, dispatch])
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
@@ -29,7 +33,9 @@ const Login = () => {
     };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login" onSubmit={handleSubmit}>
+        <h1>Welcome to <span>MyHealth</span></h1>
+        <h3>Login to Continue</h3>
         <label>Username</label>
         <br/>
         <input
@@ -37,7 +43,7 @@ const Login = () => {
             name="user_name"
             value={formData.user_name}
             onChange={handleChange}
-        />
+            />
         <br/>
         <label>Password</label>
         <br/>
@@ -46,9 +52,12 @@ const Login = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-        />
+            />
         <br/>
-        <input type="submit" value="Login" />
+        {/* {errorsList} */}
+        <br/>
+        <button>Login</button>
+        <p>Don't Have an Account? <Link to='/signup'>Signup</Link> Here</p>
     </form>
   )
 }

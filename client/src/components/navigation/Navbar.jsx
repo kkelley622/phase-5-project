@@ -7,12 +7,10 @@ const Navbar = () => {
   const { loggedIn } = useSelector(store => store.usersReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { currentUser } = useSelector(store => store.usersReducer);
 
   const handleClick = () => {
     fetch('/logout', {method: 'DELETE'})
-    dispatch(logoutUser())
-    navigate('/login')
+    dispatch(logoutUser(navigate))
   };
 
   const loggedInLinks = () => {
@@ -32,7 +30,6 @@ const Navbar = () => {
   const loggedOutLinks = () => {
     return (
       <>
-        <li><Link to="/signup">Signup</Link></li>
         <li><Link to="/login">Login</Link></li>
       </>
     )
@@ -40,6 +37,7 @@ const Navbar = () => {
 
   return (
     <nav>
+      <header>MyHealth</header>
       <ul>{ loggedIn ? loggedInLinks() : loggedOutLinks() }</ul>
     </nav>
   )

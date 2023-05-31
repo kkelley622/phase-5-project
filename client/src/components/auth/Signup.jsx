@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import {  useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { signupUser } from '../../actions/users';
+import { clearErrors } from '../../actions/errors';
 
 
 const Signup = () => {
     const { loggedIn } = useSelector(store => store.usersReducer)
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -18,11 +20,13 @@ const Signup = () => {
         password_confirmation: "",
     });
 
-    useEffect(() => {
-        if(loggedIn) {
-            navigate('/')
-        }
-    }, [loggedIn, navigate])
+    // useEffect(() => {
+    //     if(loggedIn) {
+    //         navigate('/')
+    //     } else {
+    //         dispatch(clearErrors())
+    //     }
+    // }, [loggedIn, navigate, dispatch])
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
@@ -34,7 +38,8 @@ const Signup = () => {
     };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='signup' onSubmit={handleSubmit}>
+        <h1>Create an Account to Get Started</h1>
         <label>First Name</label>
         <br/>
         <input
@@ -89,7 +94,10 @@ const Signup = () => {
             onChange={handleChange}
         />
         <br/>
-        <input type="submit" value="Signup" />
+        <br/>
+        <button>Signup</button>
+        <br/>
+        <p>Or <Link to='/login'>Login</Link></p>
     </form>
   )
 }

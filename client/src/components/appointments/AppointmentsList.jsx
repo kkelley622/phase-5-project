@@ -15,7 +15,7 @@ const AppointmentsList = () => {
     }
   }, [loggedIn, navigate]);
   
-  const appointmentsList = appointments.map(app => <AppointmentCard key={app.id} app={app}/>)
+  const appointmentsList = appointments.length > 0 ? appointments.map(app => <AppointmentCard key={app.id} app={app}/>) : "No Appointments Currently";
 
 
   return (

@@ -11,11 +11,6 @@ const AppointmentForm = () => {
         location: "",
         provider_id: ""
     });
-    const [date, setDate] = useState(new Date());
-
-    const handleDateChange = (selectedDate) => {
-        setDate(selectedDate)
-    }
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
@@ -23,15 +18,18 @@ const AppointmentForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addAppointment(formData, date))
+        dispatch(addAppointment(formData))
         setFormData({
             date: "",
+            time: "",
             location: "",
             provider_id: ""
         })
     };
 
-    const providersList = providers.map(provider => <option key={provider.id} value={provider.id}>{provider.last_name}, {provider.first_name}</option>)
+    const providersList = providers.length > 0 ?
+        providers.map(provider => <option key={provider.id} value={provider.id}>{provider.last_name}, {provider.first_name}</option>)
+    : "Loading";
 
   return (
     <form onSubmit={handleSubmit}>
@@ -42,7 +40,7 @@ const AppointmentForm = () => {
             name="provider_id"
             value={formData.provider_id}
             onChange={handleChange}
-            defaultValue={"placeholder"}>
+            >
             <option value={"placeholder"}>Select a Provider</option>
             {providersList}
         </select>
@@ -71,7 +69,7 @@ const AppointmentForm = () => {
             onChange={handleChange}
         />
         {/* <Calendar id="date" name="date" value={date.toDateString()} onChange={handleDateChange} /> */}
-        <button>Submit</button>
+        <button>Add Appointment</button>
     </form>
   )
 }

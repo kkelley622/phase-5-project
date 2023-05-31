@@ -18,10 +18,10 @@ const ProvidersList = () => {
   const providersList = uniqueProviders.map(provider =>  <li key={provider.id}>{provider.first_name} {provider.last_name}</li>)
 
   return (
-    <>
+    <div className='providers'>
       <h1>My Providers</h1>
       <ul>{providersList}</ul>
-    </>
+    </div>
   )
 }
 

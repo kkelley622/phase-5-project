@@ -6,15 +6,15 @@ import ProceduresLanding from '../procedures/ProceduresLanding'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-const Landing = () => {
+const Landing = ({ loading }) => {
   const { loggedIn } = useSelector(store => store.usersReducer);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!loggedIn) {
+    if(!loggedIn && !loading) {
       navigate('/login')
     }
-  }, [loggedIn, navigate]);
+  }, [loggedIn, navigate, loading]);
 
   return (
     <div className='grid-container'>
