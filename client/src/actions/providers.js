@@ -3,8 +3,10 @@ export const loadProviders = () => {
         fetch('/providers')
         .then(res => res.json())
         .then(data => {
-            const action = { type: "LOAD_PROVIDERS", payload: data}
-            dispatch(action)
+            if(!data.errors) {
+                const action = { type: "LOAD_PROVIDERS", payload: data}
+                dispatch(action)
+            }
         })
     }
 }

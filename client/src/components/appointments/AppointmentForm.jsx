@@ -27,9 +27,7 @@ const AppointmentForm = () => {
         })
     };
 
-    const providersList = providers.length > 0 ?
-        providers.map(provider => <option key={provider.id} value={provider.id}>{provider.last_name}, {provider.first_name}</option>)
-    : "Loading";
+    const providersList = providers.map(provider => <option key={provider.id} value={provider.id}>{provider.last_name}, {provider.first_name}</option>);
 
   return (
     <form onSubmit={handleSubmit}>

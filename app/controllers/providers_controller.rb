@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+    skip_before_action :authorize, only: [:index]
 
     def index
         providers = Provider.all.order(:last_name)
