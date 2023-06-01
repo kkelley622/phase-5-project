@@ -1,6 +1,7 @@
 class MedicationsController < ApplicationController
 
     before_action :find_medication, only: [:show]
+    skip_before_action :authorize, only: [:index]
     
     def index 
         medications = Medication.all 
