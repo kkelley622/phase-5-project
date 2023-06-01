@@ -15,7 +15,7 @@ const ProvidersList = () => {
 
   const providers = appointments.map(app => app.provider);
   const uniqueProviders = Array.from(new Set(providers.map(obj => JSON.stringify(obj)))).map(str => JSON.parse(str));
-  const providersList = uniqueProviders.map(provider =>  <li key={provider.id}>{provider.first_name} {provider.last_name}</li>)
+  const providersList = uniqueProviders.map(provider =>  <li key={provider.id}>{provider.first_name} {provider.last_name}, {provider.specialty}</li>)
 
   return (
     <div className='providers'>

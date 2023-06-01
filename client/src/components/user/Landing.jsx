@@ -3,8 +3,9 @@ import ProblemsLanding from '../problems/ProblemsLanding'
 import PrescriptionsLanding from '../prescriptions/PrescriptionsLanding'
 import AppointmentsLanding from '../appointments/AppointmentsLanding'
 import ProceduresLanding from '../procedures/ProceduresLanding'
-import { useSelector } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import ProvidersLanding from '../providers/ProvidersLanding'
 
 const Landing = ({ loading }) => {
   const { loggedIn } = useSelector(store => store.usersReducer);
@@ -22,6 +23,7 @@ const Landing = ({ loading }) => {
       <PrescriptionsLanding />
       <ProblemsLanding />
       <ProceduresLanding />
+      <ProvidersLanding />
     </div>
   )
 }
