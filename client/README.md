@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# MyHealth
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+For this project I wanted to create an application where users could keep track of their health data. Working as a nurse I encounter a lot of patients that are unable to provide an accurate health history for themselves. MyHealth could be a way for users to keep track of all medications, appointments, diagnoses, healthcare providers, etc. Independent of whatever health system they have received care at in the past. 
 
-### `npm start`
+## Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Ruby 2.7.4
+- Node.js (v16) and NPM
+- Postgresql
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup
 
-### `npm test`
+To run this app locally in the development environment, open a terminal within this app's folder. Enter the following commands in the console:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `bundle install`
+- `npm install --prefix client`
 
-### `npm run build`
+This will install dependencies. You can run the following commands to run the application:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `rails s`: will run rails backend server on localhost:3000
+- `npm start --prefix client`: will run the front end server on localhost:4000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This application was also deployed via Render.com however I lost access to the free server and it is no longer functioning.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instructions
 
-### `npm run eject`
+- Login or signup to access this applications functionality.
+- Once logged in a user can input various health data like scheduled appointments, prescriptions, past procedures and diagnoses. 
+- There is currently a small database of providers. From this list, users are able to establish which provider their appointment is scheduled with.
+- There is currently a small database of medications. From this list, users are able to establish which medication a specific prescription pertains to.
+- A user only ever has access to their own health data.
+- Delete or modify appointments.
+- Delete prescriptions, procedures or diagnoses as needed.
+- Logout when finished
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Acknowledgements
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Thank you to Enoch Griffith for his teaching and guidance during the building of this application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Thank you to my fellow Flatiron School Flex Software Engineering students who helped me understand concepts and provided encouragement.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The outline of this application was provided by Flatiron School via the Phase-4 project guidelines.
