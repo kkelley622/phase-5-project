@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import PrescriptionCard from './PrescriptionCard'
 import { useNavigate } from 'react-router-dom';
 import PrescriptionForm from './PrescriptionForm';
+import { clearErrors } from '../../actions/errors';
 
 const PrescriptionsList = () => {
     const { loggedIn } = useSelector(store => store.usersReducer);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const prescriptions = useSelector(store => store.prescriptionsReducer);
 
     useEffect(() => {
       if(!loggedIn) {
         navigate('/login')
       }
-    }, [loggedIn, navigate])
+      return () => {
+        dispatch(clearErrors())
+      }
+    }, [loggedIn, navigate, dispatch])
 
     const prescriptionsList = prescriptions.map(prescription => <PrescriptionCard key={prescription.id} prescription={prescription}/>)
 

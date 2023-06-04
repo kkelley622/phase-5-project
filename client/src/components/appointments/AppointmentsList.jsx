@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import AppointmentCard from './AppointmentCard';
 import { useNavigate } from 'react-router-dom';
 import AppointmentForm from './AppointmentForm';
+import { clearErrors } from '../../actions/errors';
 
 const AppointmentsList = () => {
   const appointments = useSelector(store => store.appointmentsReducer);
   const { loggedIn } = useSelector(store => store.usersReducer);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   
   useEffect(() => {
     if(!loggedIn) {
       navigate('/login')
+    }
+    return () => {
+      dispatch(clearErrors())
     }
   }, [loggedIn, navigate]);
   

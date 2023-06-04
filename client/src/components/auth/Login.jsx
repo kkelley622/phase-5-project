@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../actions/users';
-// import { clearErrors } from '../../actions/errors';
+import { clearErrors } from '../../actions/errors';
 
 const Login = () => {    
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { loggedIn } = useSelector(store => store.usersReducer);
-    // const errors = useSelector(store => store.errorsReducer);
-
-    // const errorsList = errors.map(error => <li key={error.id}>{error}</li>)
 
     const [formData, setFormData] = useState({
         user_name: "",
@@ -20,7 +17,10 @@ const Login = () => {
     useEffect(() => {
         if(loggedIn) {
             navigate('/')
-        } 
+        }
+        return () => {
+            dispatch(clearErrors())
+        }
     }, [loggedIn, navigate, dispatch])
 
     const handleChange = (e) => {
@@ -54,7 +54,6 @@ const Login = () => {
             onChange={handleChange}
             />
         <br/>
-        {/* {errorsList} */}
         <br/>
         <button>Login</button>
         <p>Don't Have an Account? <Link to='/signup'>Signup</Link> Here</p>

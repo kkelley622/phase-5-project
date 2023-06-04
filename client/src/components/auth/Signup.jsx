@@ -10,6 +10,14 @@ const Signup = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        if(loggedIn) {
+            navigate('/')
+        } 
+        return () => {
+            dispatch(clearErrors())
+        }
+    }, [loggedIn, navigate, dispatch]);
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -19,14 +27,6 @@ const Signup = () => {
         password: "",
         password_confirmation: "",
     });
-
-    // useEffect(() => {
-    //     if(loggedIn) {
-    //         navigate('/')
-    //     } else {
-    //         dispatch(clearErrors())
-    //     }
-    // }, [loggedIn, navigate, dispatch])
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
