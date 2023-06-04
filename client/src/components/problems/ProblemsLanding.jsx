@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ProblemsLanding = () => {
     const problems = useSelector(store => store.problemsReducer);
-    console.log(problems)
 
     const limitedProblems = problems.slice(0,5).map(problem => <li key={problem.id}>{problem.description}</li>)
 

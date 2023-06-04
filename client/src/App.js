@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar';
 import Login from './components/auth/Login';
@@ -45,13 +45,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Landing loading={loading}/>} />
-          <Route path="/meds" element={<MedList />} />
-          <Route path="/appointments" element={<AppointmentsList />} />
-          <Route path="/appointments/:id/edit" element={<AppointmentEdit />}/>
-          <Route path="/prescriptions" element={<PrescriptionsList />} />
-          <Route path="/problems" element={<ProblemsList /> } />
-          <Route path="/procedures" element={<ProceduresList />} />
-          <Route path="/providers" element={<ProvidersList />} />
+          <Route path="/meds" element={<MedList loading={loading}/>} />
+          <Route path="/appointments" element={<AppointmentsList loading={loading}/>} />
+          <Route path="/appointments/:id/edit" element={<AppointmentEdit loading={loading}/>}/>
+          <Route path="/prescriptions" element={<PrescriptionsList loading={loading}/>} />
+          <Route path="/problems" element={<ProblemsList loading={loading}/> } />
+          <Route path="/procedures" element={<ProceduresList loading={loading}/>} />
+          <Route path="/providers" element={<ProvidersList loading={loading}/>} />
         </Routes>
       }
     </BrowserRouter>

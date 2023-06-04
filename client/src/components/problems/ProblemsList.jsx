@@ -5,20 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import ProblemForm from './ProblemForm';
 import { clearErrors } from '../../actions/errors';
 
-const ProblemsList = () => {
+const ProblemsList = ({ loading }) => {
   const { loggedIn } = useSelector(store => store.usersReducer);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const problems = useSelector(store => store.problemsReducer);
 
   useEffect(() => {
-    if(!loggedIn) {
+    if(!loggedIn && !loading) {
       navigate('/login')
     }
     return () => {
       dispatch(clearErrors())
     }
-  }, [loggedIn, navigate])
+  }, [loggedIn, navigate, dispatch, loading])
   
   const problemsList = problems.map(prob => <ProblemCard key={prob.id} prob={prob}/>)
 

@@ -3,7 +3,7 @@ import ProblemsLanding from '../problems/ProblemsLanding'
 import PrescriptionsLanding from '../prescriptions/PrescriptionsLanding'
 import AppointmentsLanding from '../appointments/AppointmentsLanding'
 import ProceduresLanding from '../procedures/ProceduresLanding'
-import { Provider, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ProvidersLanding from '../providers/ProvidersLanding'
 

@@ -2,16 +2,16 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
-const ProvidersList = () => {
+const ProvidersList = ({ loading }) => {
   const { loggedIn } = useSelector(store => store.usersReducer);
   const appointments = useSelector(store => store.appointmentsReducer);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!loggedIn) {
+    if(!loggedIn && !loading) {
       navigate('/login')
     }
-  }, [loggedIn, navigate])
+  }, [loggedIn, navigate, loading])
 
   const providers = appointments.map(app => app.provider);
   const uniqueProviders = Array.from(new Set(providers.map(obj => JSON.stringify(obj)))).map(str => JSON.parse(str));

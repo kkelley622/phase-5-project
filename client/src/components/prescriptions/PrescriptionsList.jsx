@@ -5,20 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import PrescriptionForm from './PrescriptionForm';
 import { clearErrors } from '../../actions/errors';
 
-const PrescriptionsList = () => {
+const PrescriptionsList = ({ loading }) => {
     const { loggedIn } = useSelector(store => store.usersReducer);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const prescriptions = useSelector(store => store.prescriptionsReducer);
 
     useEffect(() => {
-      if(!loggedIn) {
+      if(!loggedIn && !loading) {
         navigate('/login')
       }
       return () => {
         dispatch(clearErrors())
       }
-    }, [loggedIn, navigate, dispatch])
+    }, [loggedIn, navigate, dispatch, loading])
 
     const prescriptionsList = prescriptions.map(prescription => <PrescriptionCard key={prescription.id} prescription={prescription}/>)
 

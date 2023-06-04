@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 const ProceduresLanding = () => {
     const procedures = useSelector(store => store.proceduresReducer);
-    console.log(procedures)
 
     const limitedProcedures = procedures.slice(0,5).map(procedure => <li key={procedure.id}>{procedure.description}</li>);
 

@@ -5,20 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import ProcedureForm from './ProcedureForm';
 import { clearErrors } from '../../actions/errors';
 
-const ProceduresList = () => {
+const ProceduresList = ({ loading }) => {
   const { loggedIn} = useSelector(store => store.usersReducer);
   const procedures = useSelector(store => store.proceduresReducer);
   const dispatch = useDispatch();
   const navigate= useNavigate();
 
   useEffect(() => {
-    if(!loggedIn) {
+    if(!loggedIn && !loading) {
       navigate('/login')
     } 
     return () => {
       dispatch(clearErrors())
     }
-  }, [loggedIn, navigate])
+  }, [loggedIn, navigate, dispatch, loading])
   
   const proceduresList = procedures.map(procedure => <ProcedureCard key={procedure.id} procedure={procedure}/>)
 

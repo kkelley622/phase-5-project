@@ -5,20 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import AppointmentForm from './AppointmentForm';
 import { clearErrors } from '../../actions/errors';
 
-const AppointmentsList = () => {
+const AppointmentsList = ({ loading }) => {
   const appointments = useSelector(store => store.appointmentsReducer);
   const { loggedIn } = useSelector(store => store.usersReducer);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
   useEffect(() => {
-    if(!loggedIn) {
+    if(!loggedIn && !loading) {
       navigate('/login')
     }
     return () => {
       dispatch(clearErrors())
     }
-  }, [loggedIn, navigate]);
+  }, [loggedIn, navigate, dispatch, loading]);
   
   const appointmentsList = appointments.map(app => <AppointmentCard key={app.id} app={app}/>);
 
