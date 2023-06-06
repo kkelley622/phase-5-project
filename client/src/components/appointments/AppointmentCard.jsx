@@ -15,7 +15,7 @@ const AppointmentCard = ({ app }) => {
 
   return (
     <div className='card'>
-      <h2>{moment(app.date).format('MMMM Do YYYY')} {moment(app.time).utcOffset(0).format('hh:mm a')}</h2>
+      <h2>{moment(app.date).utcOffset(0).format('MMMM Do YYYY')} {moment(app.time).utcOffset(0).format('hh:mm a')}</h2>
       <h2>{app.location}</h2>
       <h2>With {app.provider.first_name} {app.provider.last_name}</h2>
       <h3>{app.provider.specialty}</h3>
