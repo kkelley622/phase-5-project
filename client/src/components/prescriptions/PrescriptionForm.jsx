@@ -27,9 +27,7 @@ const PrescriptionForm = () => {
         })
     };
 
-    const medicationsList = medications.length > 0 ? 
-        medications.map(medication => <option key={medication.id} value={medication.id}>{medication.generic_name}/{medication.brand_name}</option>)
-        : "Loading";
+    const medicationsList = medications.map(medication => <option key={medication.id} value={medication.id}>{medication.generic_name}/{medication.brand_name}</option>);
 
   return (
     <form onSubmit={handleSubmit}>

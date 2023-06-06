@@ -5,7 +5,6 @@ import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar';
 import Login from './components/auth/Login';
 import Landing from './components/user/Landing';
-import MedList from './components/meds/MedList';
 import Signup from './components/auth/Signup';
 import AppointmentsList from './components/appointments/AppointmentsList';
 import ProblemsList from './components/problems/ProblemsList';
@@ -45,7 +44,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Landing loading={loading}/>} />
-          <Route path="/meds" element={<MedList loading={loading}/>} />
           <Route path="/appointments" element={<AppointmentsList loading={loading}/>} />
           <Route path="/appointments/:id/edit" element={<AppointmentEdit loading={loading}/>}/>
           <Route path="/prescriptions" element={<PrescriptionsList loading={loading}/>} />
