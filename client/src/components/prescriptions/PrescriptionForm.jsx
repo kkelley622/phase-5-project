@@ -4,7 +4,7 @@ import { addPrescription } from '../../actions/prescriptions';
 
 
 const PrescriptionForm = () => {
-    const medications = useSelector(store => store.medsReducer)
+    const medications = useSelector(store => store.medsReducer);
     const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
